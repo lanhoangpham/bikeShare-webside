@@ -71,6 +71,9 @@ function closeUpdateInfor(){
     document.querySelector('.update_infor').style.display = 'none';
 }
 
+//hide/display sidebar 
+
+
 //map
 
 let map;

@@ -31,6 +31,10 @@ html{
 
 /* begin css header  */
 
+.js_homePage{
+    background-color: #ccc;
+}
+
 
 .header{
     background-color: rgb(41, 37, 37);
@@ -50,7 +54,17 @@ html{
 .header_title{
     margin: 0 10px;
     font-size:20px;
+    display: flex;
 }
+.menu_in_header{
+    height: 46px;
+    margin: 0 15px;
+}
+.menu_in_header:hover{
+    cursor: pointer;
+
+}
+
 
 .header_forUser{
     display: flex;
@@ -89,12 +103,13 @@ html{
     
 }
 
+
 .sidebar{
     margin-left: 10px;
     background-color: #f1f1f1;
     width:10%;
     height: 579px;
-    
+    /* display: none; */
 }
 
 .sidebar_user{
@@ -285,8 +300,47 @@ html{
 }
 /* map */
 #map {
+    /* position: relative; */
     height: 579px;
     width: 100%;
+    /* padding: 5px 0; */
+}
+
+.homePage_border{
+    margin: auto;
+    width: 1000px;
+    /* width: 100%; */
+    height: 579px;
+
+}
+.homePage_search{
+    position: absolute;
+    background-color: white;
+    height: 43px;
+    width: 566px;
+    top: 15px;
+    right: 303px;
+    display: flex;
+}
+.homepage_inputSearch{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 0 16px;
+    
+}
+.homePage_iconSerach{
+    text-align: center;
+    background-color: #ccc;
+    line-height:43px;
+    width: 50px;
+}
+.homePage_iconSerach:hover{
+    cursor: pointer;
+}
+.ti-search{
+    display: inline-block;
 }
 
 /* end css for content */
