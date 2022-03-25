@@ -71,7 +71,38 @@ function closeUpdateInfor(){
     document.querySelector('.update_infor').style.display = 'none';
 }
 
-//hide/display sidebar 
+
+
+//javascript for hide/display buyticket_option1
+
+function openOption1(){
+    document.querySelector('.buyTicket_option1').style.display = 'flex';
+}
+function closeBuyticket1(){
+    document.querySelector('.buyTicket_option1').style.display = 'none';
+}
+//javascript for hide/display buyticket_option2
+
+function openOption2(){
+    document.querySelector('.buyTicket_option2').style.display = 'flex';
+}
+function closeBuyticket2(){
+    document.querySelector('.buyTicket_option2').style.display = 'none';
+}
+
+//javascript for hide/display buyticket_option1
+
+function openOption3(){
+    document.querySelector('.buyTicket_option3').style.display = 'flex';
+}
+function closeBuyticket3(){
+    document.querySelector('.buyTicket_option3').style.display = 'none';
+}
+
+
+
+
+
 
 
 //map

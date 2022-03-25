@@ -111,7 +111,7 @@
                             <label for="" class="infor_list_addresslabel list_label">Địa chỉ:</label>
                             <p class="infor_list_address">Thái Nguyên</p>
                         </li>
-                       <button class="updateInfor_btn" onclick="openUpdateInfor()">Cập nhật thông tin</button>
+                       <button class="updateInfor_btn btn_css" onclick="openUpdateInfor()">Cập nhật thông tin</button>
                     </ul>
 
 
@@ -141,7 +141,7 @@
                                 <img class="option_img" src="./assset/img/img-buyTicket.webp" alt="">
                                 <header class="option_title">Gói theo giờ</header>
                                 <p class="option_price">Giá 15,000VND/giờ</p>
-                                <button class="option_btn">Mua vé</button>
+                                <button class="option_btn btn_css" onclick="openOption1()">Mua vé</button>
                         </box>
                   
 
@@ -149,7 +149,7 @@
                         <img class="option_img" src="./assset/img/img-buyTicket.webp" alt="">
                         <header class="option_title">Gói 12 giờ</header>
                         <p class="option_price">Giá 50,000VND/12 giờ</p>
-                        <button class="option_btn">Mua vé</button>
+                        <button class="option_btn btn_css" onclick="openOption2()">Mua vé</button>
                        
                     </box>
 
@@ -157,7 +157,7 @@
                         <img class="option_img" src="./assset/img/img-buyTicket.webp" alt="">
                         <header class="option_title">Gói theo ngày</header>
                         <p class="option_price">Giá 70,000VND/ngày</p>
-                        <button class="option_btn">Mua vé</button>
+                        <button class="option_btn btn_css"onclick="openOption3()">Mua vé</button>
                         
                     </box>
                 </div>
@@ -209,7 +209,7 @@
             <div class="update_infor">
                 <div class="updata_infor_border">
 
-                    <div class="update_infor-close" onclick="closeUpdateInfor()">
+                    <div class="UpdateInfor_close" onclick="closeUpdateInfor()">
                         <i class="ti-close"></i>
                     </div>
         
@@ -234,7 +234,7 @@
                         
 
                         
-                        <button class="updateInfor_btn">
+                        <button class="updateInfor_btn btn_css">
                             Cập nhật
                             <i class="ti-check-box"></i>
                         </button>
@@ -247,6 +247,77 @@
                 </div>
             </div>
 
+             <!-- begin content buyTIckets option 1 -->
+             <div class="buyTicket_option1 buyTicket_options">
+                <div class="buyticket_option_border">
+
+                    <div class="buyticket_option_close" onclick="closeBuyticket1()">
+                        <i class="ti-close"></i>
+                    </div>
+
+                    <header class="buyticket_option_header">
+                        <i class="ti-arrow-circle-right"></i>
+                        Gói theo giờ
+                    </header>
+
+                    <div class="buyticket_content">
+                        Bạn sẽ sử dụng gói dịch vụ trong vòng 1h, sau khoảng thời gian 1h sau khi thuê muốn tiếp tục sử dụng dịch vụ vui lòng gia hạn dịch vụ trên webside hoặc App của BikeShare.
+                    </div>
+
+                    <div class="cf_buyTicket_border">
+                        <button class="cf_buy btn_css">Xác nhận mua gói</button>
+                    </div>
+                </div>
+            </div>
+            <!-- begin buyTIckets option 1 -->
+
+            <!-- begin content buyTIckets option 2 -->
+            <div class="buyTicket_option2 buyTicket_options">
+                <div class="buyticket_option_border">
+
+                    <div class="buyticket_option_close" onclick="closeBuyticket2()">
+                        <i class="ti-close"></i>
+                    </div>
+
+                    <header class="buyticket_option_header">
+                        <i class="ti-arrow-circle-right"></i>
+                        Gói 12 giờ
+                    </header>
+
+                    <div class="buyticket_content">
+                        Bạn sẽ sử dụng gói dịch vụ trong vòng 12h kể từ thời gian thuê, sau khoảng thời gian 12h sau khi thuê muốn tiếp tục sử dụng dịch vụ vui lòng gia hạn dịch vụ trên webside hoặc App của BikeShare.
+                    </div>
+
+                    <div class="cf_buyTicket_border">
+                        <button class="cf_buy btn_css">Xác nhận mua gói</button>
+                    </div>
+                </div>
+            </div>
+            <!-- begin buyTIckets option 2 -->
+
+            <!-- begin content buyTIckets option 3 -->
+            <div class="buyTicket_option3 buyTicket_options">
+                <div class="buyticket_option_border">
+
+                    <div class="buyticket_option_close" onclick="closeBuyticket3()">
+                        <i class="ti-close"></i>
+                    </div>
+
+                    <header class="buyticket_option_header">
+                        <i class="ti-arrow-circle-right"></i>
+                        Gói theo ngày
+                    </header>
+
+                    <div class="buyticket_content">
+                        Bạn sẽ sử dụng gói dịch vụ trong vòng 1 ngày kể từ thời gian thuê, sau khoảng thời gian 1 ngày sau khi thuê muốn tiếp tục sử dụng dịch vụ vui lòng gia hạn dịch vụ trên webside hoặc App của BikeShare.
+                    </div>
+
+                    <div class="cf_buyTicket_border">
+                        <button class="cf_buy btn_css">Xác nhận mua gói</button>
+                    </div>
+                </div>
+            </div>
+            <!-- begin buyTIckets option 3 -->
             
         </div>
     </div>

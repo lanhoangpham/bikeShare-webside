@@ -28,6 +28,21 @@ html{
     flex: 1;
     background-color: #ccc;
 }
+.btn_css{
+    width: fit-content;
+    padding: 0.5em 1em;
+    text-align: center;
+    float: inherit;
+    margin: 0em auto;
+    color: black;
+    background: #fff;
+    border-radius:5px;
+}
+.btn_css:hover{
+    cursor:pointer;
+    color: white;
+    background-color: rgb(89, 97, 91);
+}
 
 /* begin css header  */
 
@@ -181,23 +196,62 @@ html{
 .option_title,.option_price,.option1_btn{
     margin: 15px 0;
 }
-
-.option_btn,.updateInfor_btn{
-    width: fit-content;
-    padding: 0.5em 1em;
-    text-align: center;
-    float: inherit;
-    margin: 0em auto;
-    color: black;
+/* buy ticket option1 */
+.buyTicket_options{
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+    align-items: center;
+    display: none;
+    justify-content: center;
+    /* border-radius: 5px; */
+}
+.buyticket_option_border{
     background: #fff;
-    border-radius:5px;
+    width: 400px;
+    max-width: calc(100% - 32px);
+    min-height: 400px;
+    position: relative;
+}
+.buyticket_option_header{
+    background-color:  rgb(41, 37, 37);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:30px;
+    color: white;
+}
+.buyticket_option_close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #fff;
+    padding:16px;
+    cursor: pointer;
+    opacity: 0.9;
+
+}
+.buyticket_content{
+    margin: 15px 50px;
+    font-size:16px;
+    line-height:43px;
+
+}
+.cf_buyTicket_border{
+    text-align: center;
+}
+.cf_buy{
+    display: inline-block;
+
 }
 
-.option_btn,.updateInfor_btn:hover{
-    cursor:pointer;
-    color: white;
-    background-color: rgb(89, 97, 91);
-}
+/* end buyticket option1 */
+
+
 
 
 /* end buyTicket */
@@ -254,7 +308,6 @@ html{
     display: none;
     justify-content: center;
 }
-
 .updata_infor_border{
     background: #fff;
     width: 900px;
@@ -262,7 +315,7 @@ html{
     min-height: 200px;
     position: relative;
 }
-.update_infor-close {
+.UpdateInfor_close {
     position: absolute;
     right: 0;
     top: 0;
