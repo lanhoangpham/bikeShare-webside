@@ -6,7 +6,7 @@
     <link rel="icon" type="image/x-icon" href="./assset/img/img-buyTicket.webp">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bikeShare</title>
+    <title>BikeShare</title>
     <link rel="stylesheet" href="./assset/style/style.css">
     <link rel="stylesheet" href="./assset/font/themify-icons/themify-icons.css" class="">
 </head>
@@ -18,9 +18,7 @@
 
             <div class="header_title">
                 BIKESHARE
-                <div class="menu_in_header" onclick="changeSidebar()">
-                    <i class="ti-menu-alt"></i>
-                </div>
+                
             </div>
 
             <div class="header_forUser">
@@ -34,7 +32,7 @@
         <!--begin content-->
         <div class="content">
 
-            <div class="sidebar open">
+            <div class="sidebar">
                 
                <div class="sidebar_user">
                   <div class="boder">
@@ -124,7 +122,12 @@
 
              <!--begin myWallet-->
              <div class="content_common myWallet">
-                đây là ví của tôi
+                <h1 class="header_common myWallet_title">Ví của tôi</h1>
+
+                <div class="commom_css myWallet_border">
+
+                </div>
+
             </div>
             <!--end myWallet-->
 
@@ -166,7 +169,13 @@
 
             <!--begin history-->
             <div class="content_common myhistory">
-                chuyến đi của tôi
+                <h1 class="header_common myhistory_title">Lịch sử chuyến đi</h1>
+
+                <div class="commom_css myhistory_border">
+
+                </div>
+
+                
             </div>
             <!--end  history-->
 
@@ -265,7 +274,7 @@
                     </div>
 
                     <div class="cf_buyTicket_border">
-                        <button class="cf_buy btn_css">Xác nhận mua gói</button>
+                        <button class="cf_buy btn_css" onclick="closeBuyticket1()">Xác nhận mua gói</button>
                     </div>
                 </div>
             </div>
@@ -289,7 +298,7 @@
                     </div>
 
                     <div class="cf_buyTicket_border">
-                        <button class="cf_buy btn_css">Xác nhận mua gói</button>
+                        <button class="cf_buy btn_css" onclick="closeBuyticket2()">Xác nhận mua gói</button>
                     </div>
                 </div>
             </div>
@@ -313,16 +322,23 @@
                     </div>
 
                     <div class="cf_buyTicket_border">
-                        <button class="cf_buy btn_css">Xác nhận mua gói</button>
+                        <button class="cf_buy btn_css" onclick="closeBuyticket3()">Xác nhận mua gói</button>
                     </div>
                 </div>
             </div>
             <!-- begin buyTIckets option 3 -->
+
+
+            <!-- <div class="footer">
+                
+            </div> -->
             
-        </div>
+        </div> 
+       
     </div>
 
     <script src="./main.js"></script>
+    
     
 </body>
 </html>

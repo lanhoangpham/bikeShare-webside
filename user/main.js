@@ -109,9 +109,29 @@ function closeBuyticket3(){
 
 let map;
 
+// function initMap() {
+//   map = new google.maps.Map(document.getElementById("map"), {
+//     center: { lat: -34.397, lng: 150.644 },
+//     zoom: 8,
+//   });
+// }
+// Initialize and add the map
 function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
-  });
-}
+    // The location of Uluru
+    //const uluru = { lat: 21.027763, lng: 105.834160 };
+    const uluru = [
+        { lat: 21.027763, lng: 105.834160 },
+        { lat: 20.995126101947672, lng: 105.80778792562464 },
+        { lat: 21.00518387202582, lng: 105.8456098544608 }
+    ];
+    // The map, centered at Uluru
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 16,
+      center: { lat: 21.027763, lng: 105.834160 },
+    });
+    // The marker, positioned at Uluru
+    const marker = new google.maps.Marker({
+      position: uluru,
+      map: map,
+    });
+  }

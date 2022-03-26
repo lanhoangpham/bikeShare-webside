@@ -16,6 +16,8 @@ html{
 .commom_css{
     margin: auto;
     width: 1000px;
+    /* height: 100; */
+    flex: 1;
     height: 522px;
 
 }
@@ -26,6 +28,7 @@ html{
 
 .content_common{
     flex: 1;
+    height: 100%;
     background-color: #ccc;
 }
 .btn_css{
@@ -50,6 +53,12 @@ html{
     background-color: #ccc;
 }
 
+.main{
+    top: 0;
+    height: 100vh; 
+    width: 100%;
+    /* display: none; */
+}
 
 .header{
     background-color: rgb(41, 37, 37);
@@ -71,14 +80,8 @@ html{
     font-size:20px;
     display: flex;
 }
-.menu_in_header{
-    height: 46px;
-    margin: 0 15px;
-}
-.menu_in_header:hover{
-    cursor: pointer;
 
-}
+
 
 
 .header_forUser{
@@ -113,7 +116,9 @@ html{
     background-color: #ccc;
     position: relative;
     top: 46px;
-    height:579px;
+    height:  calc(100%-46px);
+    /* height:579px; */
+    bottom: 0;
     
     
 }
@@ -123,7 +128,9 @@ html{
     margin-left: 10px;
     background-color: #f1f1f1;
     width:10%;
-    height: 579px;
+    /* height: 100vh; */
+
+    /* height: 579px; */
     /* display: none; */
 }
 
@@ -354,7 +361,9 @@ html{
 /* map */
 #map {
     /* position: relative; */
-    height: 579px;
+    /* height: 579px; */
+    height: 100vh;
+
     width: 100%;
     /* padding: 5px 0; */
 }
@@ -363,7 +372,9 @@ html{
     margin: auto;
     width: 1000px;
     /* width: 100%; */
-    height: 579px;
+    /* height: 579px; */
+    height: 100%;
+
 
 }
 .homePage_search{
@@ -401,7 +412,21 @@ html{
 /* begin css for footer */
 
 .footer{
-
+    padding-top: 5px;
+    height:46px;
+    background-color: black;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
 }
 
 /* end css for footer */
+
+/* 
+.content{
+    height: 100vh; 
+    width: 100px;
+    background-color: #ccc;
+
+
+} */
