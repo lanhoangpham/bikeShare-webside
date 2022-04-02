@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        // "baseUrl": ".", // This must be specified if "paths" is.
+        // "paths": {
+        //     // This prevents vscode to suggest 2 files for the same models. As we reexport it in index.ts
+        //     "precare-models": ["./src/models", "./src/models/*"]
+        // },
+        "outDir": "./dist/",
+        "module": "commonjs",
+        "target": "es5",
+        "lib": [
+            "ES2020"
+        ],
+        "alwaysStrict": true,
+        "esModuleInterop": true,
+        "noImplicitAny": true,
+        "resolveJsonModule": true,
+        "noImplicitThis": true,
+        "strictNullChecks": true,
+        "allowJs": true,
+        "sourceMap": true
+    },
+    "compileOnSave": true,
+    "include": [
+        "./src/**/*.ts",
+        "./src/**/*.tsx"
+    ]
+}

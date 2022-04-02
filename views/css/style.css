@@ -1,0 +1,259 @@
+/* Reset CSS */
+*{
+    /* viet tat kieu Emmet */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 
+1. từ ngoài vào trong
+2. từ trên xuống dưới
+3. từ tổng quan đến chi tiết
+*/
+
+/*
+1.vị trí
+2.kích thước
+3.màu sắc
+4.kiểu dáng(kiểu chữ, hình tròn, vuông,..)
+*/
+
+#main{
+    /* position: relative; */
+    width: auto;
+}
+
+#header{
+    position: fixed;
+    height: 46px;
+    background-color: black;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+#nav{
+    display: inline-block;
+}
+#nav, .subnav{
+    list-style: none;
+}
+#nav li{
+    position: relative;
+}
+#nav > li{
+     display: inline-block;
+}
+#nav >li> a{
+    text-transform: uppercase;
+    color:  white;
+    line-height: 46px;
+}
+#nav li a{
+    display: inline-block;
+    text-decoration: none;
+    padding: 0 24px;
+}
+
+#nav li:hover .subnav{
+    display: block;
+}
+#nav .subnav li:hover,
+#nav >li:hover> a{
+    color: #000;
+    background-color: #ccc;
+}
+
+#nav .subnav{
+    min-width: 160px;
+    color: white;
+    position: absolute;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) ;
+    display: none;
+    top: 100%;
+    background-color: white;
+}
+#nav .subnav a{
+    color: black;
+    padding: 0 14px;
+    line-height: 38px;
+}
+#nav .nav-arrow-down{
+    font-size: 14px;
+}
+
+#header .search-btn{
+    float: right;
+    padding: 0 21px;
+    
+}
+#header .search-btn:hover{
+    background-color: red;
+    cursor: pointer;
+}
+#header .search-icon{
+    color: #fff;
+    font-size: 20px;
+    line-height: 46px;
+    
+}
+
+
+
+#slider{
+    position: relative;
+    margin-top: 46px;
+    padding-top: 50%;
+    background: url('./img/slider/slider2.jpg') top center / cover no-repeat;
+}
+#slider .text-content{
+    position: absolute;
+    top: 50px;
+    color: #000;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+#slider .text-heading{
+   font-size: 50px;
+   padding: 10px;
+}
+#slider .text-decription{
+    padding: 15px;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+
+#content{
+  height: 1000px;
+  padding-top: 15px;
+  /* background-color: aquamarine; */
+}
+/* .content-section */
+#content .section-heading{
+    font-size: 30px;
+    padding: 15px;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 4px;
+}
+#content .content-section{
+    height: 500px;
+    position: relative;
+    width: 800px;
+    padding: 64px 0;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-top: 10px; */
+    display: block;
+    
+}
+#content .content-section:hover{
+    background-color: #ccc;
+}
+#content .about-text{
+    text-align: justify;
+    width: 300px;
+    /* display: block; */
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 300;
+    margin-left: 45px;
+}
+#content .introduce-img{
+    position: absolute;
+    top: 130px;
+    margin-left: 400px ;
+    width: 340px;
+    height: 250px;
+    border-radius: 12px;
+}
+
+#content .section-2 {
+    margin-top: 15px;
+    padding: 15px 0;
+    text-align: center;
+    background-color: rgb(132, 127, 143);
+    height: 500px;
+    color: black;
+}
+.section-2 .about-item{
+    font-size: 25px;
+}
+#content .item{
+    
+    float: left;
+    margin-top: 46px;
+    width: calc(100%/3);
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+#content .xedap{
+    object-position: center;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+}
+#content .item:hover{
+    cursor: pointer;
+    background-color: #ccc;
+}
+#content .phone{
+    margin-bottom: 15px;
+    width: 150px;
+    height: 150px;
+    border-radius: 12px;
+}
+
+#content .ride{
+    margin-bottom: 15px;
+    width: 150px;
+    height: 150px;
+    border-radius: 12px;
+}
+.item .about-item-2{
+    margin-top: 40px;
+    text-decoration: overline;
+}
+#footer{
+
+}
+.text-map{
+    position: relative;
+}
+
+.text-map .first-line{
+    padding-top: 20px;
+    /* width: 100%; */
+    height: 100px;
+    /* margin-left: 300px; */
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 4px;
+}
+.text-map .search #slPlaceTypes{
+    margin-top: 10px;
+    margin-left: 42%; 
+}
+
+.btnsearch {
+    margin-left: 45%;
+}
+
+
+#map {
+    position: absolute;
+     width:100%; 
+     height: 400px; 
+     /* background-color:#0f0;  */
+     margin-top:20px; 
+     padding:0;
+ }

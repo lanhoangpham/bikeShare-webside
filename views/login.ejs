@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <title>
+        BikeShare
+    </title>
+    <link rel='stylesheet' href='./css/login.css' />
+</head>
+
+<body>
+    <form action="login" method="POST" onsubmit="return validate()">
+        <div class="register">
+            <h1>Đăng nhập</h1>
+            <hr>
+                <label for="username"><b>Tên đăng nhập</b></label>
+                <input type="text" placeholder="Username" name="username" valueid="username">
+                <label for="password"><b>Mật khẩu</b></label>
+                <input type="password" placeholder="******" name="password" id="password">
+            <hr>
+            
+                <p style="color:red"><%= validate %></p>
+              
+            <button type="submit" class="submit">Đăng nhập</button>
+        </div>
+        <div class="register login">
+            <p>Bạn chưa có tài khoản? <a href="./register">Đăng kí</a>.</p>
+        </div>
+    </form>
+</body>
+
+</html>
