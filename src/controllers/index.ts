@@ -9,7 +9,7 @@ controller.get("/", (req: Request, res: Response) => {
         res.redirect("/login");
         return;
     }
-    res.render("homepage");
+    res.render("index");
 })
 
 controller.get("/login", (req: Request, res: Response) => {
@@ -34,7 +34,7 @@ controller.get("/info", (req: Request, res: Response) => {
 
     db.query(`SELECT * FROM users`, function(err, results) {
         if (err) throw err;
-        const user = formatData(results)
+        const user = results;
         res.render("info", { user })
     })
 })
@@ -62,22 +62,32 @@ controller.get("/instruction", (req: Request, res: Response) => {
     res.render("instruction");
 })
 
-function formatData(data: any[]) {
-    const formattedData = data.map((i: any) => {
-        const birth = new Date(i.NgaySinh);
-        const NgayLapHD = new Date(i.NgayLapHD);
-        const date = new Date(i.NgayNop);
-        const NgayBD = new Date(i.NgayBD);
-        const NgayLP = new Date(i.NgayLP);
 
-        return {
-            ...i,
-            NgaySinh: birth.getFullYear()+'-' + (birth.getMonth()+1) + '-'+birth.getDate(),
-            NgayLapHD: NgayLapHD.getFullYear()+'-' + (NgayLapHD.getMonth()+1) + '-'+NgayLapHD.getDate(),
-            NgayNop: date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate(),
-            NgayBD: NgayBD.getFullYear()+'-' + (NgayBD.getMonth()+1) + '-'+NgayBD.getDate(),
-            NgayLP: NgayLP.getFullYear()+'-' + (NgayLP.getMonth()+1) + '-'+NgayLP.getDate(),
-        }
-    })
-    return formattedData
-}
+
+
+
+
+
+
+
+
+
+// function formatData(data: any[]) {
+//     const formattedData = data.map((i: any) => {
+//         const birth = new Date(i.NgaySinh);
+//         const NgayLapHD = new Date(i.NgayLapHD);
+//         const date = new Date(i.NgayNop);
+//         const NgayBD = new Date(i.NgayBD);
+//         const NgayLP = new Date(i.NgayLP);
+
+//         return {
+//             ...i,
+//             NgaySinh: birth.getFullYear()+'-' + (birth.getMonth()+1) + '-'+birth.getDate(),
+//             NgayLapHD: NgayLapHD.getFullYear()+'-' + (NgayLapHD.getMonth()+1) + '-'+NgayLapHD.getDate(),
+//             NgayNop: date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate(),
+//             NgayBD: NgayBD.getFullYear()+'-' + (NgayBD.getMonth()+1) + '-'+NgayBD.getDate(),
+//             NgayLP: NgayLP.getFullYear()+'-' + (NgayLP.getMonth()+1) + '-'+NgayLP.getDate(),
+//         }
+//     })
+//     return formattedData
+// }

@@ -26,7 +26,7 @@
             </div>
 
             <div class="header_forUser">
-                <button onclick="myFunction()">Đăng xuất</button>
+                <button onclick="logoutFunc()">Đăng xuất</button>
                 <!-- <a href="" class="user"><i class="ti-user"></i></a> -->
             </div>
 
@@ -55,7 +55,7 @@
                 <div class="sidebar_option js_myWallet"><a href="./wallet">Ví của tôi</a></div>
                 <div class="sidebar_option js_buyTicket"><a href="./ticket">Mua vé</a></div>
                 <div class="sidebar_option js_history"><a href="./history">Chuyến đi của tôi</a></div>
-                <div class="sidebar_option js_instruction"><a href="./instruction"></a>Hướng dẫn sử dụng</div>
+                <div class="sidebar_option js_instruction"><a href="./instruction">Hướng dẫn sử dụng</a></div>
              </div>
                 
             </div>
@@ -69,23 +69,27 @@
                     <ul class="infor_list">
                         <li class="infor_list_content">
                             <label for="" class="infor_list_namelabel list_label">Họ và tên:</label>
-                            <p class="infor_list_userName">Phạm Hoàng Lan</p>
+                            <p class="infor_list_userName"><%= user[1].name %></p>
                         </li>
                         <li class="infor_list_content">
                             <label for="" class="infor_list_phonelabel list_label">Số điện thoại:</label>
-                            <p class="infor_list_phone">0384203835</p>
+                            <p class="infor_list_phone"><%=  user[1].phone %></p>
+                        </li></p>
                         </li>
                         <li class="infor_list_content">
                             <label for="" class="infor_list_maillabel list_label">Email:</label>
-                            <p class="infor_list_mail">phamhoanglan@gmail.com</p>
+                            <p class="infor_list_mail"><%= user[1].email %></p>
+                        </li></p>
                         </li>
                         <li>
                             <label for="" class="infor_list_indentifylabel list_label">CMND/CCCD:</label>
-                            <p class="infor_list_identify">091898440</p>
+                            <p class="infor_list_identify"><%= user[0].cmnd %></p>
+                        </li></p>
                         </li>
                         <li class="infor_list_content">
                             <label for="" class="infor_list_addresslabel list_label">Địa chỉ:</label>
-                            <p class="infor_list_address">Thái Nguyên</p>
+                            <p class="infor_list_address"><%= user[0].address %></p>
+                        </li></p>
                         </li>
                        <button class="updateInfor_btn btn_css" onclick="openUpdateInfor()">Cập nhật thông tin</button>
                     </ul>

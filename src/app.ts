@@ -22,3 +22,7 @@ app.use("/", controller);
 app.listen(1422, () => {
     console.info("Listen port 1422");
 })
+
+function info(arg0: string, info: any) {
+    throw new Error("Function not implemented.");
+}
