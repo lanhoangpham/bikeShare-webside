@@ -1,1 +1,107 @@
-Chưa code
+<html>
+
+<head>  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="./assset/img/img-buyTicket.webp">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BikeShare</title>
+    <link rel="stylesheet" href="./assset/style/style.css">
+    <link rel="stylesheet" href="./assset/themify-icons/themify-icons.css" class="">
+</head>
+
+<body>
+
+    <div class="main">
+
+        <header class="header">
+
+            <div class="header_title">
+                BIKESHARE
+                
+            </div>
+
+            <div class="header_forUser">
+                <button onclick="logoutFunc()">Đăng xuất</button>
+                <!-- <a href="" class="user"><i class="ti-user"></i></a> -->
+            </div>
+
+        </header>
+        
+
+        <!--begin content-->
+        <div class="content">
+
+            <div class="sidebar open">
+                
+               <div class="sidebar_user">
+                  <div class="boder">
+                        <svg  viewBox="0 0 80 80" width="80" height="80">
+                            <circle class="circle" cx="40" cy="40" r="38"/>
+                            
+                        </svg>
+                        <p class="UserName">UserName</p>
+                    </div>
+                    
+               </div>
+               
+               <div class="sidebar_option_list">
+                   <div class="sidebar_option js_homePage"><a href="./homepage">Trang chủ</a></div>
+                   <div class="sidebar_option js_infor"><a href="./info">Thông tin cá nhân</a></div>
+                   <div class="sidebar_option js_myWallet"><a href="./wallet">Ví của tôi</a></div>
+                   <div class="sidebar_option js_buyTicket"><a href="./ticket">Mua vé</a></div>
+                   <div class="sidebar_option js_history"><a href="./history">Chuyến đi của tôi</a></div>
+                   <div class="sidebar_option js_instruction"><a href="./instruction">Hướng dẫn sử dụng</a></div>
+                </div>
+                
+            </div>
+
+
+            <!-- begin Instruction-->
+            <div class="content_common buyTicket">
+                <h1 class="header_common buyTicket_title">
+                    Mua vé
+                </h1>
+                
+                <div class="commom_css buyTicket_border">
+                    <ul class="buyTicket_list">
+                        <li class="buyTicket_li">
+                            <h3 class="">Dự án:</h3>
+                            <p class="">BikeShare - SANSLAB.</p>
+                            <p class="">(Viện Điện Tử Viễn Thông - Đại học Bách Khoa Hà Nội)</p>
+
+                        </li>
+
+                        <li class="buyTicket_li">
+                            <h3 class="">Loại vé:</h3>
+                            <p class="">Giá tiền được tính theo thời lượng sử dụng dịch vụ của khách hàng.</p>
+                        </li>
+                        <li class="buyTicket_li">
+                            <h3 class="">Giá vé:</h3>
+                            <p class="">10,000VND/giờ</p>
+                        </li>
+                        <li class="buyTicket_li">
+                            <h3 class="">Hiệu lực:</h3>
+                            <p class="">Thời lượng tính tiền tính từ thời gian bạn xác nhận mua vé đến khi trả xe về đúng trạm và kết thúc chuyến đi.</p>
+                        </li>
+                    </ul>
+
+                    <box class="buyTicket_cf">
+                        <img src="./assset/img/img-buyTicket.webp" alt="" class="buyTicket_logo">
+                        <button class="buyTicket_cf_btn btn_css">Xác nhận mua vé</button>
+                    </box>
+                    
+                </div>
+            </div>
+
+            <!-- end Instruction-->
+
+            
+        </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+
+</body>
+</html>

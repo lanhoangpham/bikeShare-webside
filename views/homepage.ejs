@@ -3,12 +3,12 @@
 <head>  
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BikeShare</title>
     <link rel="icon" type="image/x-icon" href="./assset/img/img-buyTicket.webp">
+    <link rel="stylesheet" href="./assset/themify-icons/themify-icons.css" class="">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bikeShare</title>
     <link rel="stylesheet" href="./assset/style/style.css">
-    <link rel="stylesheet" href="./assset/font/themify-icons/themify-icons.css" class="">
 </head>
 
 <body>
@@ -19,9 +19,7 @@
 
             <div class="header_title">
                 BIKESHARE
-                <div class="menu_in_header" onclick="changeSidebar()">
-                    <i class="ti-menu-alt"></i>
-                </div>
+                
             </div>
 
             <div class="header_forUser">
@@ -49,7 +47,7 @@
                </div>
                
                <div class="sidebar_option_list">
-                <div class="sidebar_option js_homePage"><a href="./homepage">Trang chủ</a></div>
+                <div class="sidebar_option js_homePage" onclick="changeContent('homePage', this)">Trang chủ</div>
                 <div class="sidebar_option js_infor"><a href="./info">Thông tin cá nhân</a></div>
                 <div class="sidebar_option js_myWallet"><a href="./wallet">Ví của tôi</a></div>
                 <div class="sidebar_option js_buyTicket"><a href="./ticket">Mua vé</a></div>
@@ -61,7 +59,7 @@
             
             <!--begin homePage-->
 
-            <div class="content_common honePage">
+            <div class="content_common homePage">
                 <div class="homePage_border">
                     <div id="map">  
                         
@@ -74,7 +72,7 @@
 
                     <div class="homePage_search">
                         <input type="text" class="homepage_inputSearch" placeholder="Tìm trạm xe">
-                        <div class="homePage_iconSerach">
+                        <div class="homePage_iconSearch">
                             <i class="ti-search"></i>
                         </div>
                     </div>
