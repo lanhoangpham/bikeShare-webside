@@ -12,7 +12,7 @@ exports.controller.get("/", function (req, res) {
         res.redirect("/login");
         return;
     }
-    res.render("index");
+    res.render("homepage");
 });
 exports.controller.get("/login", function (req, res) {
     if (req.cookies.username === "admin") {

@@ -1,1 +1,116 @@
-Chưa code
+<html>
+
+<head>  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="./assset/img/img-buyTicket.webp">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BikeShare</title>
+    <link rel="stylesheet" href="./assset/style/style.css">
+    <link rel="stylesheet" href="./assset/themify-icons/themify-icons.css" class="">
+</head>
+
+<body>
+
+    <div class="main">
+
+        <header class="header">
+
+            <div class="header_title">
+                BIKESHARE
+                
+            </div>
+
+            <div class="header_forUser">
+                <button onclick="logoutFunc()">Đăng xuất</button>
+                <!-- <a href="" class="user"><i class="ti-user"></i></a> -->
+            </div>
+
+        </header>
+        
+
+        <!--begin content-->
+        <div class="content">
+
+            <div class="sidebar open">
+                
+               <div class="sidebar_user">
+                  <div class="boder">
+                        <svg  viewBox="0 0 80 80" width="80" height="80">
+                            <circle class="circle" cx="40" cy="40" r="38"/>
+                            
+                        </svg>
+                        <p class="UserName">UserName</p>
+                    </div>
+                    
+               </div>
+               
+               <div class="sidebar_option_list">
+                   <div class="sidebar_option js_homePage"><a href="./homepage">Trang chủ</a></div>
+                   <div class="sidebar_option js_infor"><a href="./info">Thông tin cá nhân</a></div>
+                   <div class="sidebar_option js_myWallet"><a href="./wallet">Ví của tôi</a></div>
+                   <div class="sidebar_option js_buyTicket"><a href="./ticket">Mua vé</a></div>
+                   <div class="sidebar_option js_history"><a href="./history">Chuyến đi của tôi</a></div>
+                   <div class="sidebar_option js_instruction"><a href="./instruction">Hướng dẫn sử dụng</a></div>
+                </div>
+                
+            </div>
+
+
+            <!-- begin Instruction-->
+            <div class="content_common wallet">
+                <h1 class="header_common wallet_title">
+                    Ví của tôi
+                </h1>
+                
+                <div class="commom_css wallet_border">
+                    
+`                   <div class="wallet_border_content">
+                        <ul class="wallet_contentList">
+                            <li class="wallet_LiContent">
+                                <img src="./assset/img/money.jpg" alt="" class="wallet_img">
+
+                                <div class="wallet_LiContent1">
+                                    <div class="wallet_LiContent1_container">
+                                        <h2 class="money">Số tiền</h2>
+                                        <p class="value">0 VND</p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="wallet_LiContent">
+                                <img src="./assset/img/pushMoney.png" alt="" class="wallet_img">
+
+                                <div class="wallet_LiContent1">
+                                    <div class="wallet_LiContent1_container">
+
+
+                                        <h2>Nạp tiền</h2>
+                                    </div>
+                                </div>    
+                            </li>
+                            
+                        </ul>
+
+                        <a class="buyticketHistory" >
+                            Giao dịch
+                        </a>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+
+            <!-- end Instruction-->
+
+            
+        </div>
+
+        
+    </div>
+
+    <script src="./js/main.js"></script>
+
+</body>
+</html>

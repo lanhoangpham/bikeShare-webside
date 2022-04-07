@@ -72,16 +72,36 @@ function closeUpdateInfor(){
 }
 
 
+//javascript for hide/display buy ticker history
+function openBuyTicketHistory(){
+  document.querySelector('.buyTicket_history').style.display = 'flex';
+}
 
+//close buy ticker history
+function closeBuyTicketHistory(){
+  document.querySelector('.buyTicket_history').style.display = 'none';
+}
 
+//open/close option station 
+function openOption(){
+  document.querySelector('.homepage_inputEnd_option').style.display = 'block';
+}
 
+function closeOption(){
+  document.querySelector('.homepage_inputEnd_option').style.display = 'none';
+
+}
 
 
 //map
 
-//let map;
-
 let infoWindow, map;
+var coordinate;
+
+
+
+// console.log(coordinate);
+
 function initMap() {
     // The location of Uluru
     const uluru = { lat: 21.00706853613633, lng: 105.84312793670026 };
@@ -94,8 +114,13 @@ function initMap() {
     const marker_hust = new google.maps.Marker({
       position: uluru,
       map: map,
-      label: 'Trạm 1',
-      title: 'Số lượng xe: 2'
+      // label: 'Trạm 1',
+      animation: google.maps.Animation.BOUNCE,
+      title: 'Số lượng xe: 2',
+      icon: {
+        url: './assset/img/img-buyTicket.webp',
+        scaledSize:{width: 30, height: 30}
+      }
     
     });
 
@@ -103,22 +128,34 @@ function initMap() {
     const marker_ussh = new google.maps.Marker({
         position: {lat: 20.99510606882998, lng: 105.80775573911664},
         map: map,
-        label: 'Trạm 2'
-        
+        animation: google.maps.Animation.BOUNCE,
+        title: 'Số lượng xe: 2',
+        icon: {
+          url: './assset/img/img-buyTicket.webp',
+          scaledSize:{width: 30, height: 30}
+        }
       });
 
     
     const marker_ulis = new google.maps.Marker({
         position: {lat: 21.039302467560347, lng: 105.78179263911746},
         map: map,
-        label: "Trạm 3"
+        animation: google.maps.Animation.BOUNCE,
+        title: 'Số lượng xe: 2',
+        icon: {
+          url: './assset/img/img-buyTicket.webp',
+          scaledSize:{width: 30, height: 30}
+        }
     });
-
-    // marker_ulis.setIcon('./assset/img/img-buyTicket.webp')
-
-    
+   
     
       //display my position
+
+
+
+
+      const pos = uluru;
+
       infoWindow = new google.maps.InfoWindow();
 
       const locationButton = document.createElement("button");
@@ -138,6 +175,7 @@ function initMap() {
     
               infoWindow.setPosition(pos);
               infoWindow.setContent("Location found.");
+              
             //   infoWindow.Marker.setIcon('./assset/img/img-buyTicket.webp');
               infoWindow.open(map);
               map.setCenter(pos);
@@ -151,7 +189,83 @@ function initMap() {
           handleLocationError(false, infoWindow, map.getCenter());
         }
       });
+    
+    /**------------------direction--------------------- */
+
+
+      
+    
+      var stationElement = document.querySelector('.homepage_inputEnd_option');
+      const directionDistance = new google.maps.DistanceMatrixService();
+      
+
+      stationElement.addEventListener('click', function(e) {
+
+        // directionsRenderer.setMap(null);
+
+          var className = e.target.className;
+          var coordinate;
+
+          switch (className) {
+            case "station_hust":
+                coordinate ={ lat: 21.00706853613633, lng: 105.84312793670026 };
+                break;
+            case "station_ussh":
+                coordinate ={lat: 20.99510606882998, lng: 105.80775573911664};
+                break;
+            case "station_ulish":
+                coordinate ={lat: 21.039302467560347, lng: 105.78179263911746};
+                break;
+          }
+
+          const directionsService = new google.maps.DirectionsService();
+      
+            directionsService.route(
+            {
+              origin: pos,
+              destination:coordinate,
+              travelMode: google.maps.TravelMode.DRIVING,
+            },
+            function(DirectionsResult, DirectionsStatus){
+      
+              if (DirectionsStatus == 'OK'){
+      
+                directionsRenderer = new google.maps.DirectionsRenderer({
+                    directions: DirectionsResult,
+                     map: map
+                 });
+                // directionsRenderer();
+                
+              }
+      
+            }
+            
+          )       
+    
+      })
+      directionsRenderer.setMap(null);
+
+    
+    /**------------------end direction--------------------- */
+    
+      
+    /**------------------begin distantion--------------------- */
+    
+
+
+
+    /**------------------end distantion--------------------- */
+
+    
+      
+      
+    
+
 }  
+
+
+
+
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
       infoWindow.setPosition(pos);
       infoWindow.setContent(
@@ -169,3 +283,5 @@ function logoutFunc() {
 
     window.location.reload();
 }
+
+

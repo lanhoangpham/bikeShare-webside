@@ -9,6 +9,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assset/style/style.css">
+    
+
 </head>
 
 <body>
@@ -19,7 +21,6 @@
 
             <div class="header_title">
                 BIKESHARE
-                
             </div>
 
             <div class="header_forUser">
@@ -61,6 +62,38 @@
 
             <div class="content_common homePage">
                 <div class="homePage_border">
+                    
+                    <div class="homePage_search">
+                            <div class="homePage_input">
+                                <input type="text" class="homepage_inputBegin" placeholder="Vị trí của tôi">
+                                 
+                            
+                            </div>
+
+                            <div class="homePage_input" onclick="openOption()">
+
+                                <ul class="homePage_input_li">
+                                    <li>
+                                        <input type="text" class="homepage_inputEnd" placeholder="Chọn trạm xe" >
+                                    </li>
+
+                                    <ul class="homepage_inputEnd_option">
+                                        <li class="station_hust">Trạm bách khoa</li>
+                                        <li class="station_ussh">Trạm Nhân Văn</li>
+                                        <li class="station_ulish">Trạm Ngoại Ngữ</li>
+                                    </ul>
+
+
+                                </ul>
+                                
+                                
+                            </div>
+
+                            <button class="homePage_search_btn btn_css" onclick="closeOption()">Search</button>
+                    </div>
+
+
+                    
                     <div id="map">  
                         
                     </div>
@@ -70,12 +103,13 @@
                         defer
                     </script>
 
-                    <div class="homePage_search">
+                    <!-- <div class="homePage_search">
                         <input type="text" class="homepage_inputSearch" placeholder="Tìm trạm xe">
                         <div class="homePage_iconSearch">
                             <i class="ti-search"></i>
                         </div>
-                    </div>
+                    </div> -->
+
 
                 </div>
                 

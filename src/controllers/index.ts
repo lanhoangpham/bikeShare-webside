@@ -9,7 +9,7 @@ controller.get("/", (req: Request, res: Response) => {
         res.redirect("/login");
         return;
     }
-    res.render("index");
+    res.render("homepage");
 })
 
 controller.get("/login", (req: Request, res: Response) => {
