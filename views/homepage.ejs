@@ -34,29 +34,49 @@
         <!--begin content-->
         <div class="content">
 
-            <div class="sidebar open">
+            <div class="sidebar">
                 
-               <div class="sidebar_user">
-                  <div class="boder">
-                        <svg  viewBox="0 0 80 80" width="80" height="80">
-                            <circle class="circle" cx="40" cy="40" r="38"/>
-                            
-                        </svg>
-                        <p class="UserName">UserName</p>
-                    </div>
-                    
-               </div>
-               
-               <div class="sidebar_option_list">
-                <div class="sidebar_option js_homePage" onclick="changeContent('homePage', this)">Trang chủ</div>
-                <div class="sidebar_option js_infor"><a href="./info">Thông tin cá nhân</a></div>
-                <div class="sidebar_option js_myWallet"><a href="./wallet">Ví của tôi</a></div>
-                <div class="sidebar_option js_buyTicket"><a href="./ticket">Mua vé</a></div>
-                <div class="sidebar_option js_history"><a href="./history">Chuyến đi của tôi</a></div>
-                <div class="sidebar_option js_instruction"><a href="./instruction">Hướng dẫn sử dụng</a></div>
+                <div class="sidebar_user">
+                   <div class="boder">
+                         <svg  viewBox="0 0 80 80" width="80" height="80">
+                             <circle class="circle" cx="40" cy="40" r="38"/>
+                             
+                         </svg>
+                         <p class="sidebar_UserName"></p>
+                     </div>
+                     
+                </div>
+                
+                <div class="sidebar_option_list">
+                 <div class="sidebar_option" onclick="changeContent('homePage', this)">
+                     <i class="ti-home sidebar_icon"></i>
+                     Trang chủ
+                     </div>
+ 
+                    <div class="sidebar_option" onclick="changeContent('infor', this)">
+                     <i class="ti-user sidebar_icon"></i>
+                     Thông tin cá nhân
+                     </div>
+                     
+                    <div class="sidebar_option" onclick="changeContent('myWallet', this)">
+                     <i class="ti-wallet sidebar_icon"></i>
+                     Ví của tôi
+                     </div>
+                    <div class="sidebar_option" onclick="changeContent('buyTicket', this)">
+                     <i class="ti-ticket sidebar_icon"></i>
+                     Mua vé
+                     </div>
+                    <div class="sidebar_option" onclick="changeContent('myhistory', this)">
+                     <i class="ti-location-arrow sidebar_icon"></i>
+                     Chuyến đi của tôi
+                     </div>
+                    <div class="sidebar_option" onclick="changeContent('instruction', this)">
+                     <i class="ti-info sidebar_icon"></i>
+                     Hướng dẫn sử dụng
+                     </div>
+                 </div>
+                 
              </div>
-                
-            </div>
             
             <!--begin homePage-->
 
@@ -65,7 +85,7 @@
                     
                     <div class="homePage_search">
                             <div class="homePage_input">
-                                <input type="text" class="homepage_inputBegin" placeholder="Vị trí của tôi">
+                                <input type="text" class="homepage_inputBegin" placeholder="Vị trí của tôi" >
                                  
                             
                             </div>
@@ -74,13 +94,11 @@
 
                                 <ul class="homePage_input_li">
                                     <li>
-                                        <input type="text" class="homepage_inputEnd" placeholder="Chọn trạm xe" >
+                                        <input type="text" class="homepage_inputEnd" placeholder="Chọn trạm xe"  >
                                     </li>
 
                                     <ul class="homepage_inputEnd_option">
-                                        <li class="station_hust">Trạm bách khoa</li>
-                                        <li class="station_ussh">Trạm Nhân Văn</li>
-                                        <li class="station_ulish">Trạm Ngoại Ngữ</li>
+                                       
                                     </ul>
 
 
@@ -117,8 +135,263 @@
             </div>
             <!--end homePage-->
 
+
+
+
+            <!-- begin infor -->
+            <div class="content_common infor">
+                <h1 class="header_common infor_title">Thông tin cá nhân</h1>
+
+                <div class="commom_css infor_border">
+
+                    <ul class="infor_list">
+                        <li class="infor_list_content">
+                            <label for="" class="infor_list_namelabel list_label">Họ và tên:</label>
+                            <p class="infor_list_userName"></p>
+                        </li>
+                        <li class="infor_list_content">
+                            <label for="" class="infor_list_phonelabel list_label">Số điện thoại:</label>
+                            <p class="infor_list_phone"></p>
+                        </li></p>
+                        </li>
+                        <li class="infor_list_content">
+                            <label for="" class="infor_list_maillabel list_label">Email:</label>
+                            <p class="infor_list_mail"></p>
+                        </li></p>
+                        </li>
+                        <li>
+                            <label for="" class="infor_list_indentifylabel list_label">CMND/CCCD:</label>
+                            <p class="infor_list_identify"></p>
+                        </li></p>
+                        </li>
+                        <li class="infor_list_content">
+                            <label for="" class="infor_list_addresslabel list_label">Địa chỉ:</label>
+                            <p class="infor_list_address"></p>
+                        </li></p>
+                        </li>
+                       <button class="updateInfor_btn btn_css" onclick="openUpdateInfor()">Cập nhật thông tin</button>
+                    </ul>
+
+
+
+                </div>
+                
+            </div>
+            <!-- end infor -->
+
+
+
+            <!-- begin wallet -->
+            <div class="content_common mywallet">
+                <h1 class="header_common wallet_title">
+                    Ví của tôi
+                </h1>
+                
+                <div class="commom_css wallet_border">
+                    
+`                   <div class="wallet_border_content">
+                        <ul class="wallet_contentList">
+                            <li class="wallet_LiContent">
+                                <img src="./assset/img/money.jpg" alt="" class="wallet_img">
+
+                                <div class="wallet_LiContent1">
+                                    <div class="wallet_LiContent1_container">
+                                        <h2 class="money">Số tiền</h2>
+                                        <p class="value">0 VND</p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="wallet_LiContent">
+                                <img src="./assset/img/pushMoney.png" alt="" class="wallet_img">
+
+                                <div class="wallet_LiContent1">
+                                    <div class="wallet_LiContent1_container">
+
+
+                                        <h2>Nạp tiền</h2>
+                                    </div>
+                                </div>    
+                            </li>
+                            
+                        </ul>
+
+                        <a class="buyticketHistory" >
+                            Giao dịch
+                        </a>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            <!-- end wallet -->
+
+            <!-- begin buy ticket -->
+            <div class="content_common buyTicket">
+                <h1 class="header_common buyTicket_title">
+                    Mua vé
+                </h1>
+                
+                <div class="commom_css buyTicket_border">
+                    <ul class="buyTicket_list">
+                        <li class="buyTicket_li">
+                            <h3 class="">Dự án:</h3>
+                            <p class="">BikeShare - SANSLAB.</p>
+                            <p class="">(Viện Điện Tử Viễn Thông - Đại học Bách Khoa Hà Nội)</p>
+
+                        </li>
+
+                        <li class="buyTicket_li">
+                            <h3 class="">Loại vé:</h3>
+                            <p class="">Giá tiền được tính theo thời lượng sử dụng dịch vụ của khách hàng.</p>
+                        </li>
+                        <li class="buyTicket_li">
+                            <h3 class="">Giá vé:</h3>
+                            <p class="">10,000 VND/giờ</p>
+                        </li>
+                        <li class="buyTicket_li">
+                            <h3 class="">Hiệu lực:</h3>
+                            <p class="">Thời lượng tính tiền tính từ thời gian bạn xác nhận mua vé đến khi trả xe về đúng trạm và kết thúc chuyến đi.</p>
+                        </li>
+                    </ul>
+
+                    <box class="buyTicket_cf">
+                        <img src="./assset/img/img-buyTicket.webp" alt="" class="buyTicket_logo">
+                        <div class="buyTicket_cf_btn_border">
+                            <button class="buyTicket_cf_btn btn_css">Xác nhận mua vé</button>
+                        </div>
+                        <p class="buyTicket_history_link" onclick="openBuyTicketHistory()">Lịch sử giao dịch.</p>
+                    </box>
+                    
+                </div>
+            </div>
+            <!-- end buy ticket -->
+            
+            <!-- begin history -->
+            <div class="content_common myhistory">
+                <h2 class="header_common">Lịch sử đường đi</h2>
+                <div class="commom_css">
+                    <div class="userInfo"></div>
+                    
+                    <table border="1" class="historyPath_table table_css">
+                       
+                        
+                        
+                    </table>
+                </div>
+                
+            </div>
+            <!-- begin history -->
+
+            <!-- instruction -->
+            <div class="content_common instruction">
+                <h1 class="header_common instruction_title">
+                    Hướng dẫn sử dụng dịch vụ
+                </h1>
+                
+                <div class="commom_css instruction_border">
+                    
+                    <ul class="instruction_list">
+                        <li class="instruction1">
+                            <i class="ti-check-box"></i>
+                            <p class="">Bạn cần đăng kí tài khoản trên webside hoặc App của bikeShare, nạp tiền vào tài khoản và đăng kí vé để sử dụng dịch vụ.</p>
+                        </li>
+
+                        <li class="instruction1">
+                            <i class="ti-check-box"></i>
+                            <p class="">Bắt đầu sử dụng, bạn có thể lấy xe từ trạm bất kì, tận hưởng chuyến đi của bạn và trả xe về trạm xe gần bạn nhất.</p>
+                        </li>
+                        <li class="instruction1">
+                            <i class="ti-check-box"></i>
+                            <p class="">Quét mã QA trên xe thông qua ứng dụng của điện thoại để mở khóa xe và bắt đầu chuyến đi.</p>
+                        </li>
+                        <li class="instruction1">
+                            <i class="ti-check-box"></i>
+                            <p class="">Đỗ xe về trạm gần bạn nhất và xác nhận trả xe trên ứng dụng hoặc webside của bikeShare để kết thúc chuyến đi.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
+
+
+        <!-- thành phần con của các mục -->
+
+        <!-- begin update user's information -->
+        <div class="update_infor">
+            <div class="updata_infor_border">
+
+                <div class="UpdateInfor_close" onclick="closeUpdateInfor()">
+                    <i class="ti-close"></i>
+                </div>
+    
+                <header class="update_infor-header">
+                    <i class="ti-arrow-circle-right"></i>
+                    Cập nhật thông tin
+                </header>
+    
+                <div class="update_infor-body">
+    
+                    <label for="" class="update_infor-label">Họ và tên</label>
+                    <input type="Full Name" class="update_infor-input updateName" placeholder="Họ và tên">
+    
+                    <label for="" class="update_infor-label">Email</label>
+                    <input type="text" class="update_infor-input updateEmail" placeholder="Email">
+                    
+                    <label for="" class="update_infor-label">Số điện thoại</label>
+                    <input type="Email/Phone" class="update_infor-input updatePhone" placeholder="Số điện thoại">
+                    
+                    <label for="" class="update_infor-label">Địa chỉ</label>
+                    <input type="Email/Phone" class="update_infor-input updateAddress" placeholder="Địa chỉ">
+                    
+
+                    
+                    <button class="cfUpdateInfor_btn btn_css" onclick="closeUpdateInfor()" >
+                        Cập nhật
+                        <i class="ti-check"></i>
+                    </button>
+                </div>
+    
+                
+    
+            </div>
+        </div>
+        <!-- end update user's information -->
+
+        <!-- begin history contract -->
+        <div class="buyTicket_history">
+            <div class="buyTicket_history_border">
+
+                <div class="buyTicket_history_close" onclick="closeBuyTicketHistory()">
+                    <i class="ti-close"></i>
+                </div>
+    
+                <header class="buyTicket_history_header">
+                    <i class="ti-arrow-circle-right"></i>
+                    Lịch sử giao dịch
+                </header>
+    
+                <div class="buyTicket_history-body">
+                    <div class="buyTicket_history_username"></div>
+                    <table class="contract_table table_css">
+                   
+                    </table>
+                </div>
+    
+                
+    
+            </div>
+        </div>
+        <!-- end history contract -->
+
     </div>
+    
+    <!-- footer -->
+    <div class="footer">
+
+    </div>
+
 
     <script src="./js/main.js"></script>
 

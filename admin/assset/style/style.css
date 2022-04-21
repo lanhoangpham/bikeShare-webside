@@ -1,0 +1,83 @@
+/* comon */
+*{
+    /* viet tat kieu Emmet */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.header{
+    height:46px;
+    width:100%;
+    background-color: black;
+    color: white;
+    line-height: 46px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: flex;
+}
+.header_title{
+    font-size: 20px;
+}
+.header_logout{
+    text-align: center;
+    width: 8%;
+
+}
+.header_logout:hover{
+    cursor: pointer;
+    background-color: #ccc;
+    color: black;
+}
+
+/* begin content */
+.content_header{
+    text-align: center;
+    padding-top: 15px;
+    /* position: relative; */
+}
+.main{
+    width: 100%;
+    height: 100vh;
+}
+.content{
+    width: 100%;
+    height: 92.64vh;
+    position: relative;
+    background-color: #ccc;
+}
+.option{
+    display: flex;
+    height: 71vh;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.option_list{
+    width: 20%;
+    height: 33%;
+    background-color: white;
+    text-align: center;
+    border-radius: 30px;
+    box-shadow: inset 0px 12px;
+    
+}
+.option_list p{
+    margin-top: 58px;
+    font-size: 25px;
+}
+.option_list:hover{
+    background-color: #f1f1f1;
+    cursor: pointer;
+    
+}

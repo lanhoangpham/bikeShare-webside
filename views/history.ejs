@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <script src="./js/main.js"></script>
+    
     <div class="main">
 
         <header class="header">
@@ -44,7 +44,9 @@
                             <circle class="circle" cx="40" cy="40" r="38"/>
                             
                         </svg>
-                        <p class="UserName">UserName</p>
+                        <div class="sidebar_UserName"></div>
+
+
                     </div>
                     
                </div>
@@ -62,28 +64,17 @@
 
             <!--begin history-->
             <div class="content_common myhistory">
-                <div class="header_common">Lịch sử đường đi</div>
-                <table id="customers">
-                    <tr>
-                        <th>statusbikeID</th>
-                        <th>statuslock</th>
-                        <th>longtitude</th>
-                        <th>latitude</th>
-                    </tr>
-                    <% for(var i=0; i < history.length; i++) { %>
-                        <tr>
-                          <td><%= history[i].statusbikeID %></td>
-                          <td><%= history[i].statuslock %></td>
-                          <td><%= history[i].longtitude %></td>
-                          <td><%= history[i].latitude %></td>
-                        </tr>
-                     <% } %>
-                </table>
+                <h2 class="header_common">Lịch sử đường đi</h2>
+                <div class="commom_css">
+                    <div class="userInfo"></div>
+                </div>
+                
             </div>
             <!--end  history-->
  
         </div>
     </div>
+    <script src="./js/main.js"></script>
 
     
 
