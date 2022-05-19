@@ -54,7 +54,7 @@ html{
     width: 100%;
     height: 92.64vh;
     position: relative;
-    background-color: #ccc;
+    background-color: white ;
 }
 .option{
     display: flex;
@@ -63,10 +63,14 @@ html{
     align-items: center;
     flex-wrap: wrap;
 }
+.option a{
+    text-decoration: none;
+    color: black;
+}
 .option_list{
     width: 20%;
     height: 33%;
-    background-color: white;
+    background-color: #ccc;
     text-align: center;
     border-radius: 30px;
     box-shadow: inset 0px 12px;
@@ -80,4 +84,342 @@ html{
     background-color: #f1f1f1;
     cursor: pointer;
     
+}
+
+/* begin map for manager  */
+
+#map{
+    flex: 2;
+    height: 65vh;
+    width: 52vw;
+}
+.maneger_station{
+    margin: 5vh 7vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* begin sidebar */
+.sideBar {
+    margin-top: 2vh;
+    height: 5vh;
+    width: 100vh;
+    margin-left: 5vh;
+}
+.sideBar a{
+    color: black;
+    text-decoration: none;
+}
+.ti-angle-right{
+    font-size: 12px;
+}
+.function_maneger{
+    flex: 1;
+    margin-left: 5vh;
+}
+
+.function_maneger_select{
+    font-size: 20px;
+    margin-bottom: 50px;
+    width: 100%;
+    height: 10vh;
+    border-radius: 17px;
+    background-color: white;
+    border-width: none;
+}
+.function_maneger_select:hover{
+    cursor: pointer;
+    background-color: #ccc;
+    color: black;
+}
+
+/* add */
+/* update_Infor */
+.addStation{
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+    align-items: center;
+    display: none;
+    justify-content: center;
+}
+.addStation_border{
+    background: #fff;
+    width: 900px;
+    max-width: calc(100% - 32px);
+    min-height: 200px;
+    position: relative;
+}
+.addStation_close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #fff;
+    padding:16px;
+    cursor: pointer;
+    opacity: 0.9;
+}
+.addStation-body{
+    padding: 16px;
+
+}
+.addStation-header{
+    background:  rgb(41, 37, 37);
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:30px;
+    color: #fff;
+}
+.addStation-label{
+    display: block;
+
+}
+.addStation-input{
+    border: 1px solid #ccc;
+    width:100%;
+    padding:10px;
+    font-size:15px;
+    margin-bottom: 24px;
+}
+.ti-arrow-circle-right{
+    margin-right: 10px;
+}
+
+/* begin css for edit station */
+.EditStation{
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+    align-items: center;
+    display: none;
+    justify-content: center;
+}
+.EditStation_border{
+    background: #fff;
+    width: 900px;
+    max-width: calc(100% - 32px);
+    min-height: 200px;
+    position: relative;
+}
+.EditStation_close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #fff;
+    padding:16px;
+    cursor: pointer;
+    opacity: 0.9;
+}
+.EditStation-body{
+    padding: 16px;
+
+}
+.EditStation-header{
+    background:  rgb(41, 37, 37);
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:30px;
+    color: #fff;
+}
+.EditStation-label{
+    display: block;
+
+}
+.EditStation-input{
+    border: 1px solid #ccc;
+    width:100%;
+    padding:10px;
+    font-size:15px;
+    margin-bottom: 24px;
+}
+.ti-arrow-circle-right{
+    margin-right: 10px;
+}
+
+/* begin delete station */
+.DeleteStation{
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+    align-items: center;
+    display: none;
+    justify-content: center;
+}
+.DeleteStation_border{
+    background: #fff;
+    width: 900px;
+    max-width: calc(100% - 50%);
+    min-height: 200px;
+    position: relative;
+}
+.DeleteStation_close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #fff;
+    padding:16px;
+    cursor: pointer;
+    opacity: 0.9;
+}
+.DeleteStation-body{
+    padding: 16px;
+
+}
+.DeleteStation-header{
+    background:  rgb(41, 37, 37);
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:30px;
+    color: #fff;
+}
+
+.stations_list{
+    list-style: none;
+    margin-bottom: 24px;
+}
+.stations_list li{
+    margin-bottom:15px;
+    /* text-align: center; */
+    line-height: 25px;
+}
+
+/* css for infoStation */
+.InfoStation{
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+    align-items: center;
+    display: none;
+    justify-content: center;
+}
+.InfoStation_border{
+    background: #fff;
+    width: 900px;
+    max-width: calc(100% - 50%);
+    min-height: 200px;
+    position: relative;
+}
+.InfoStation_close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #fff;
+    padding:16px;
+    cursor: pointer;
+    opacity: 0.9;
+}
+.InfoStation-body{
+    padding: 16px;
+    margin: 5px 63px;
+}
+.InfoStation-header{
+    background:  rgb(41, 37, 37);
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:30px;
+    color: #fff;
+}
+.table_css   {
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 100%;
+ } 
+ .table_css  th {
+    border: 1px solid black;
+    padding: 5px;
+ }
+ .table_css  td {
+    border: 1px solid black;
+    padding: 5px;
+ }
+ .deleteAStation:hover{
+     cursor: pointer;
+     color: red;
+ }
+
+ /* css for functions of ticket */
+ .managerTicket_content{
+     /* display: flex; */
+ }
+.history_buyTicket, 
+.aboutTicket, 
+.managerBike_content,
+.managerUser_content{
+    margin: 5vh 10vh;
+}
+
+.functionName,.priceCurrent, .editPrice_label{
+    margin: 4vh 0;
+}
+.price_ticket{
+    width: 36%;
+    height: 36px;
+    padding-left: 1.2vh;
+}
+.cf_Edit_price{
+    width: 11%;
+    height: 36px;
+    margin-left: 18px;
+}
+.cf_Edit_price:hover{
+    cursor: pointer;
+}
+
+/* css for manager bike */
+.deleteBike:hover{
+    cursor: pointer;
+    color:red;
+    
+}
+.deleteUser:hover{
+    cursor: pointer;
+    color:red;
+}
+.borderForHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.borderForInput{
+    width: 47vh;
+    background-color: #ccc;
+    height: 5vh;
+    display:flex;
+}
+.searchBikeInput, 
+.searchContractInput,
+.searchUserInput{
+    width: 47vh;
+    height: 5vh;
+    border: 1px solid #ccc;
+    padding-left: 5px;
+}
+.ti-search{
+    width: 6vh;
+    padding-top: 1.2vh;
+    padding-left: 1.3vh;
+}
+.ti-search:hover{
+    cursor: pointer;
 }

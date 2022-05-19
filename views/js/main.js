@@ -87,12 +87,6 @@ function openOption(){
   document.querySelector('.homepage_inputEnd_option').style.display = 'block';
 }
 
-function closeOption(){
-  document.querySelector('.homepage_inputEnd_option').style.display = 'none';
-  direction();
-}
-
-
 
 // fetch user's information
 var userAPI = 'http://localhost:3000/user';
@@ -103,7 +97,7 @@ var stationAPI  = 'http://localhost:3000/Station'
 /**-----------------map-------------------- */
 
 let infoWindow, map;
-var coordinate;
+var coordinate;                                                                                           
 
 function initMap() {
   var infoWindow3 = new google.maps.InfoWindow();
@@ -118,7 +112,7 @@ function initMap() {
       //display station 
       var listStation = stations.map(function(station){
         return `
-          <li class="${station.stationID}">
+          <li id="${station.id}">
             ${station.stationName} <br> Số xe:${station.avalibleBike}
           </li>
         `
@@ -158,10 +152,12 @@ function initMap() {
   
   
   //--------------------------display my position----------------------
-  function displayMyPosition(){
 
+  //function to display my position
+  function displayMyPosition(){
     infoWindow = new google.maps.InfoWindow();
 
+    //creat button
     const locationButton = document.createElement("button");
 
     locationButton.textContent = "Vị trí của tôi";
@@ -176,7 +172,6 @@ function initMap() {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
-          // console.log(pos)
           
           infoWindow.setPosition(pos);
           infoWindow.setContent("Location found.");
@@ -193,126 +188,7 @@ function initMap() {
       }
    });
   }
-  displayMyPosition();
-
-
- /**------------------direction--------------------- */
-
- 
- //get destination
-function getdestination(){
-  // google.maps.event.trigger(map, 'resize');
-  return getApi(stationAPI)
-    .then(function(response){
-      return response.json();
-    })
-    .then(function(stations){
-      var stationList = document.querySelector('.homepage_inputEnd_option');
-      
-      return new Promise(function(resolve){
-        stationList.addEventListener('click', function(e){
-          var stationIDGetAfterClick = Number(e.target.className);
-          
-            var destination = stations.find(function(station){
-              return station.stationID === stationIDGetAfterClick;
-            })
-            var coordinate = destination.stationPosition[0];
-            resolve(coordinate);
-          })
-      })
-
-    })
-}
-
-
-//get my position
-function getMyPosition(){
-  return new Promise(function(resolve){
-    let pos;
-    navigator.geolocation.getCurrentPosition(
-    (position) => {
-       pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-      },
-      resolve(pos);
-    },
-      );
-    })
-}
-
-var directionDistance = new google.maps.DistanceMatrixService()
-
-/**function direction */
-function direction(){
-  getMyPosition()
-    .then(function (myPosition){
-      getdestination()
-        .then(function (destination){
-          const directionsService = new google.maps.DirectionsService();
-          directionsService.route(
-            {
-              origin: myPosition,
-              destination: destination,
-              travelMode: google.maps.TravelMode.DRIVING
-            },
-            function(DirectionsResult, DirectionsStatus){
-              if(DirectionsStatus == 'OK'){
-                directionsRenderer = new google.maps.DirectionsRenderer({
-                  directions: DirectionsResult,
-                  map: map
-                })
-                //calculate distance
-                var m = Math.ceil((DirectionsResult.routes[0].overview_path.length)/2);
-                middle = DirectionsResult.routes[0].overview_path[m];
-                directionDistance.getDistanceMatrix(
-                  {
-                    origins:[myPosition],
-                    destinations:[destination],
-                    travelMode: google.maps.TravelMode.DRIVING
-                  },
-                  function(DirectionsResult, status){
-                    if ( status === 'OK'){
-                      var originList = DirectionsResult.originAddresses;
-                      var destinationList = DirectionsResult.destinationAddresses;
-                      for ( var i = 0; i < originList.length; i++){
-                        var results = DirectionsResult.rows[i].elements;
-                        for ( var j = 0; j < destinationList.length; j++){
-                          var element = results[j];
-                          var dt = element.distance.text;
-                          var dr = element.duration.text;
-                        }
-                      }
-                      var content =  dt + dr;
-                      console.log(content);
-                      infoWindow3.setContent(content);
-                      infoWindow3.setPosition(middle);
-                      infoWindow3.open(map);
-                    }
-                  }
-                )
-
-              }
-
-            }
-          )
-        })
-    })
-    
-}
-//run direction function
-
-document.querySelector('.homePage_search_btn').addEventListener('click',function() {
-  // map.panBy(0, 0);
-
-  direction();
-
-})
- 
-}  
-
-
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
     infoWindow.setContent(
       browserHasGeolocation
@@ -321,7 +197,231 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     );
     infoWindow.open(map);
 
+  }
+  //run function
+  displayMyPosition();
+
+
+ /**------------------direction--------------------- */
+
+ 
+  //get destination
+  function getdestination(){
+    //return promise
+    return getApi(stationAPI)
+      //get data from API
+      .then(function(response){
+        return response.json();
+      })
+
+      .then(function(stations){
+        var stationList = document.querySelector('.homepage_inputEnd_option');
+        
+        return new Promise(function(resolve){
+            //click on the station list
+            stationList.addEventListener('click', function(e){
+              //get Id of this station on click
+              var stationIDGetAfterClick = Number(e.target.id);
+              
+              //find the station that onclick
+              var destination = stations.find(function(station){
+                return station.id === stationIDGetAfterClick;
+              })
+
+              //display station in input box
+              var stationName = destination.stationName;
+              
+              //display station name in input box
+              document.querySelector('.homepage_inputEnd').value = stationName;
+
+              //get coordinates of this station
+              var coordinate = destination.stationPosition[0];
+              
+              //resolve coordinates
+              resolve(coordinate);
+              
+            })
+        })
+
+      })
+  }
+
+
+  //get my position
+  function getMyPosition(){
+    document.querySelector('.homepage_inputBegin').addEventListener('click', function(){
+    
+    })
+
+    //position begin is current position
+    if (document.querySelector('.homepage_inputBegin').value  == ''){
+      return new Promise(function(resolve){
+        
+
+        let pos;
+        navigator.geolocation.getCurrentPosition(
+        (position) => {
+          pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          },
+          resolve(pos);
+        },
+          );
+        })
+
     }
+    //my choice
+    
+  }
+  getMyPosition();
+
+
+  /**function direction */
+  function direction(){
+
+    getMyPosition()
+      .then(function (myPosition){
+      
+          getdestination()
+          .then(function (destination){
+            return destination;
+          })
+          .then(function (destination){
+            
+            var searchElement = document.querySelector('.homePage_search_btn');
+            //click on the searchbtn
+            searchElement.addEventListener('click', function(){
+              
+            const directionsService = new google.maps.DirectionsService();
+            
+            document.querySelector('.homepage_inputEnd_option').style.display = 'none';
+                      
+              directionsService.route(
+              {
+                origin: myPosition,
+                destination: destination,
+                travelMode: google.maps.TravelMode.DRIVING
+              },
+              function(DirectionsResult, DirectionsStatus){
+                if(DirectionsStatus == 'OK'){
+                  new google.maps.DirectionsRenderer({
+                    directions: DirectionsResult,
+                    map: map
+                  })
+                  //calculate distance
+                  var m = Math.ceil((DirectionsResult.routes[0].overview_path.length)/2);
+                  middle = DirectionsResult.routes[0].overview_path[m];
+                  directionDistance.getDistanceMatrix(
+                    {
+                      origins:[myPosition],
+                      destinations:[destination],
+                      travelMode: google.maps.TravelMode.DRIVING
+                    },
+                    function(DirectionsResult, status){
+                      if ( status === 'OK'){
+                        var originList = DirectionsResult.originAddresses;
+                        var destinationList = DirectionsResult.destinationAddresses;
+                        for ( var i = 0; i < originList.length; i++){
+                          var results = DirectionsResult.rows[i].elements;
+                          for ( var j = 0; j < destinationList.length; j++){
+                            var element = results[j];
+                            var dt = element.distance.text;
+                            var dr = element.duration.text;
+                          }
+                        }
+                        var content =  dt + ' ' + dr;
+
+                        console.log(dt);
+
+                        infoWindow3.setContent(content);
+                        infoWindow3.setPosition(middle);
+                        infoWindow3.open(map);
+                      }
+                    }
+                  )
+
+                }
+
+              }
+            )
+            })
+          })
+        
+        
+      })
+      
+  }
+  //run direction function
+  direction()
+  
+  /**-----------------------distance----------------------- */
+  var directionDistance = new google.maps.DistanceMatrixService()
+  // function getDistance between two points
+  function distance(){
+    getMyPosition()
+      .then(function(origin){
+        getApi(stationAPI)
+          .then(function(response){
+            return response.json();
+          })
+          .then(function(stations){
+            var coordinates = stations.forEach(function(station){
+
+              const directionsService = new google.maps.DirectionsService();
+
+              directionsService.route(
+                {
+                  origin: origin,
+                  destination: station.stationPosition[0],
+                  travelMode: google.maps.TravelMode.DRIVING
+                },
+                function(DirectionsResult, DirectionsStatus){
+                  if(DirectionsStatus == 'OK'){
+                    var m = Math.ceil((DirectionsResult.routes[0].overview_path.length)/2);
+                    middle = DirectionsResult.routes[0].overview_path[m];
+                    directionDistance.getDistanceMatrix(
+                      {
+                        origins:[origin],
+                        destinations:[station.stationPosition[0]],
+                        travelMode: google.maps.TravelMode.DRIVING
+                      },
+                      function(DirectionsResult, status){
+                        if ( status === 'OK'){
+                          var originList = DirectionsResult.originAddresses;
+                          var destinationList = DirectionsResult.destinationAddresses;
+                          for ( var i = 0; i < originList.length; i++){
+                            var results = DirectionsResult.rows[i].elements;
+                            for ( var j = 0; j < destinationList.length; j++){
+                              var element = results[j];
+                              var dt = element.distance.text;
+                              var dr = element.duration.text;
+                            }
+                          }
+                          var content =  dt + ' ' + dr;
+                          
+                          var displayDistanceInStationOption = `Khoảng cách: ${dt}`;
+                          const node = document.createElement("p");
+                          const textnode = document.createTextNode(`${displayDistanceInStationOption}`);
+                          node.appendChild(textnode);
+                          document.getElementById(`${station.id}`).appendChild(node);
+                          
+                        }
+                      }
+                    )
+                  }
+                }
+              )
+            })
+            
+          })
+      })
+  }
+  //run function
+  distance();
+}  
+
+
 
 // logout
 
@@ -331,12 +431,11 @@ function logoutFunc() {
   window.location.reload();
 }
 
-
 /**------------------fetch------------------------ */
 
 
 //user's information and contract
-var loginID = 'lahph_';
+var loginID = 'tuanvd';
 
 
 
@@ -476,7 +575,7 @@ getApi(userAPI)
 displaySequential();
 
 
-//use fetch vvvvvvvvvvvbv to get fake api
+//use fetch to get fake api
 function getApi(api){
   return fetch(api)
 }

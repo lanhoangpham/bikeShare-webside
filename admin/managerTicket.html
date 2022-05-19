@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BikeShare</title>
+    <link rel="stylesheet" href="./assset/style/style.css">
+    <link rel="stylesheet" href="./assset/themify-icons/themify-icons.css">
+</head>
+<body>
+    <script src="./js/main.js"></script>
+    <div class="main">
+        <!-- begin header -->
+        <div class="header">
+            <div class="header_title">BIKESHARE</div>
+            <div class="header_logout">Đăng xuất</div>
+        </div>
+        <!-- end header -->
+
+
+        <!-- begin html for content -->
+        <div class="content">
+            <h1 class="content_header">BikeShare Administrator</h1>
+            
+            <div class="sideBar">
+                <a href="homepage_admin.html" class="">
+                    Trang chủ 
+                    
+                </a>
+                <i class="ti-angle-right"></i>
+                <a href="managerTicket.html" class="">Quản lý vé</a>
+            </div>
+
+            <!-- functions -->
+            <div class="managerTicket_content">
+
+                <div class="aboutTicket">
+                    <h2 class="functionName">
+                         Chỉnh sửa vé:
+                   </h2>
+
+                   <p class="priceCurrent">Giá vé hiện tại: 10.000 VND/giờ</p>
+
+                   <label for="" class="editPrice_label">Chỉnh sửa giá vé:</label>
+                    <input type="Price" class="price_ticket" placeholder="Nhập giá mới">
+                   <button class="cf_Edit_price">Xác nhận thay đổi</button>
+                </div>
+
+                <!-- buy ticket history -->
+                <div class="history_buyTicket">
+                        
+                        <!-- <h2 class="functionName">
+                             Các giao dịch:
+                        </h2> -->
+                        <div class="borderForHeader">
+
+                            <h2 class="functionName">Các giao dịch:</h2>
+                            <div class="borderForInput">
+                
+                                <input type="Find contract" class="searchContractInput" placeholder="Nhập mã hợp đồng">
+                                <i class="ti-search"></i>
+            
+                            </div>
+                        </div>
+                       
+                        
+                        <!-- display content of each funtion -->
+                        <div class="all_history_buyTicket">
+                            <table class="contract_table table_css">
+                           
+                            </table>
+                        </div>
+                 </div>
+        
+                
+                
+    
+            </div>
+
+
+        </div>
+        <!-- end content -->
+    </div>
+</body>
+</html>

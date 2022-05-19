@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BikeShare</title>
+    <link rel="stylesheet" href="./assset/style/style.css">
+    <link rel="stylesheet" href="./assset/themify-icons/themify-icons.css">
+</head>
+<body>
+    <script src="./js/main.js"></script>
+    <div class="main">
+        <!-- begin header -->
+        <div class="header">
+            <div class="header_title">BIKESHARE</div>
+            <div class="header_logout">Đăng xuất</div>
+        </div>
+        <!-- end header -->
+
+
+        <!-- begin html for content -->
+        <div class="content">
+            <h1 class="content_header">BikeShare Administrator</h1>
+            
+            <div class="sideBar">
+                <a href="homepage_admin.html" class="">
+                    Trang chủ 
+                    
+                </a>
+                <i class="ti-angle-right"></i>
+                <a href="managerStation.html" class="">Quản lý trạm xe</a>
+            </div>
+
+            <!-- quản lý trạm xe -->
+            <div class="maneger_station">
+                <!-- div to displap map -->
+                <div id="map"></div>
+
+                <script async
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTZn_68NIUejfq6mqiZ6qFmQow4li5BEo&callback=initMap">
+                        defer // đây ạ
+                    </script>
+
+                <!-- funtion select -->
+                <div class="function_maneger">
+                    <ul class="li">
+                        <button class="select_addStation function_maneger_select" onclick="openAddStation()">Thêm trạm xe</button>
+                    </ul>
+                    <ul class="li">
+                        <button class="t_editStaion function_maneger_select " onclick="openEditStation()">Chỉnh sửa thông tin trạm xe</button>
+                    </ul>
+                    <!-- <ul class="li">
+                        <button class="select_deleteStation function_maneger_select " onclick="openDeleteStation()">Xóa trạm xe</button>
+                    </ul> -->
+                    <ul class="li">
+                        <button class="select_infoStation function_maneger_select " onclick="openInfoStation()">Xem thông tin trạm xe</button>
+                    </ul>
+                </div>
+            </div>
+            <!-- kết thúc quản lý trạm xe -->
+
+            <!-- funtion detail -->
+
+                <!-- Add station -->
+                <div class="addStation">
+                    <div class="addStation_border">
+        
+                        <div class="addStation_close" onclick="closeAddStation()">
+                            <i class="ti-close"></i>
+                        </div>
+            
+                        <header class="addStation-header">
+                            <i class="ti-arrow-circle-right"></i>
+                            Thêm trạm xe
+                        </header>
+            
+                        <div class="addStation-body">
+            
+                            <label for="" class="addStation-label">Tên Trạm</label>
+                            <input type="Full Name" class="addStation-input addStationName" placeholder="Nhập tên trạm">
+            
+                            <label for="" class="addStation-label">Kinh độ của trạm:</label>
+                            <input type="text" class="addStation-input AddLatitude" placeholder="Nhập kinh độ">
+                            
+                            <label for="" class="addStation-label">Vĩ độ của trạm</label>
+                            <input type="Email/Phone" class="addStation-input addLongtitude" placeholder="Nhập vĩ độ">
+                            
+                            <label for="" class="addStation-label">Số xe lượng tối đa được giữ tại trạm</label>
+                            <input type="Email/Phone" class="addStation-input maxbike" placeholder="Nhập số xe">
+                            
+        
+                            
+                            <button class="addStation_btn btn_css" >
+                                Cập nhật
+                                <i class="ti-check"></i>
+                            </button>
+                        </div>
+            
+                        
+            
+                    </div>
+                </div>
+                <!-- end add station -->
+                
+                <!-- begin edit station  -->
+                <div class="EditStation">
+                    <div class="EditStation_border">
+        
+                        <div class="EditStation_close" onclick="closeEditStation()">
+                            <i class="ti-close"></i>
+                        </div>
+            
+                        <header class="EditStation-header">
+                            <i class="ti-arrow-circle-right"></i>
+                            Chỉnh sửa thông tin trạm xe
+                        </header>
+            
+                        <div class="EditStation-body">
+                            
+                            <label for="" class="EditStation-label">ID của trạm cần sửa</label>
+                            <input type="text " class="EditStation-input idOfStation " placeholder="Nhập số xe">
+                            
+            
+                            <label for="" class="EditStation-label">Tên Trạm</label>
+                            <input type="Full Name" class="EditStation-input newStationName " placeholder="Nhập tên trạm">
+                            
+                            <label for="" class="EditStation-label">Kinh độ của trạm:</label>
+                            <input type="text" class="EditStation-input newlatitude" placeholder="Nhập kinh độ">
+                            
+                            <label for="" class="EditStation-label">Vĩ độ của trạm</label>
+                            <input type="text" class="EditStation-input newLongitude" placeholder="Nhập vĩ độ">
+        
+                            
+                            <button class="cfEditStation_btn btn_css" >
+                                Cập nhật
+                                <i class="ti-check"></i>
+                            </button>
+                        </div>
+            
+                        
+            
+                    </div>
+                </div>
+                <!-- end edit station  -->
+
+                <!--begin delete station -->
+                <!-- <div class="DeleteStation">
+                    <div class="DeleteStation_border">
+        
+                        <div class="DeleteStation_close" onclick="closeDeleteStation()">
+                            <i class="ti-close"></i>
+                        </div>
+            
+                        <header class="DeleteStation-header">
+                            <i class="ti-arrow-circle-right"></i>
+                            Xóa trạm xe
+                        </header>
+            
+                        <div class="DeleteStation-body">
+            
+                            
+                            <ul class="stations_list">
+
+                            </ul>
+                            
+                        </div>
+            
+                        
+            
+                    </div>
+                </div> -->
+                <!--begin delete station -->
+
+                <!-- begin infoStation -->
+                <div class="InfoStation">
+                    <div class="InfoStation_border">
+        
+                        <div class="InfoStation_close" onclick="closeInfoStation()">
+                            <i class="ti-close"></i>
+                        </div>
+            
+                        <header class="InfoStation-header">
+                            <i class="ti-arrow-circle-right"></i>
+                            Thông tin các trạm xe
+                        </header>
+            
+                        <div class="InfoStation-body">
+            
+                            
+                            
+                            <table border="1" class="stations_list_forInfo table_css">
+                       
+                        
+                        
+                            </table>
+                            
+                        </div>
+            
+                        
+            
+                    </div>
+                </div>
+                <!-- end infoStation -->
+
+
+            <!-- end funtion detail -->
+
+
+
+        </div>
+        <!-- end content -->
+    </div>
+</body>
+</html>

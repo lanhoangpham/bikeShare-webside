@@ -85,8 +85,9 @@
                     
                     <div class="homePage_search">
                             <div class="homePage_input">
-                                <input type="text" class="homepage_inputBegin" placeholder="Vị trí của tôi" >
-                                 
+                                <Autocomplete restrictions="vi"}>
+                                <input type="text" class="homepage_inputBegin" placeholder="Vị trí của tôi"  >
+                                 </Autocomplete>
                             
                             </div>
 
@@ -107,7 +108,7 @@
                                 
                             </div>
 
-                            <button class="homePage_search_btn btn_css" onclick="closeOption()">Search</button>
+                            <button class="homePage_search_btn" >Search</button>
                     </div>
 
 
@@ -117,17 +118,9 @@
                     </div>
 
                     <script async
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtdTWAUA78Q0bf5FaWF1o5ABbIvWkjXCE&callback=initMap">
-                        defer
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTZn_68NIUejfq6mqiZ6qFmQow4li5BEo&libraries=places&callback=initMap">
+                        defer // đây ạ
                     </script>
-
-                    <!-- <div class="homePage_search">
-                        <input type="text" class="homepage_inputSearch" placeholder="Tìm trạm xe">
-                        <div class="homePage_iconSearch">
-                            <i class="ti-search"></i>
-                        </div>
-                    </div> -->
-
 
                 </div>
                 
