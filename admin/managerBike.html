@@ -40,7 +40,7 @@
                 <div class="borderForInput">
     
                     <input type="Find Bike" class="searchBikeInput" placeholder="Nhập ID của xe">
-                    <i class="ti-search"></i>
+                    <i class="ti-search" onclick="searchBike()"></i>
 
                 </div>
             </div>
@@ -52,7 +52,33 @@
                 
                     </table>
                 </div>
+                <div class="searchBikeByID">
+                    <table class="searchBikeByIDTable table_css">
+                   
+                    </table>
+                </div>
+            
+             <div class="borderForAddBike">
 
+                <h2 class="functionName">Thêm xe:</h2>
+                
+                <div class="AddBikeInput">
+                    <label for="" class="addBikeLabel">Trạm hiện tại</label>
+                    <input type="text" class="addBikeInput stationCurrent" placeholder="Thêm xe">
+
+                    <label for="" class="addBikeLabel">Năm sản xuất</label>
+                    <input type="text" class="addBikeInput addBikeProductYear" placeholder="Năm sản xuất">
+
+                    
+                </div>
+                 <button class="addBike_cfBtn btn_css" onclick="putDataOfAddBike()" >
+                        Cập nhật
+                        <i class="ti-check"></i>
+                    </button>   
+                            
+
+                
+            </div>
            </div>
 
         </div>

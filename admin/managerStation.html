@@ -44,18 +44,18 @@
 
                 <!-- funtion select -->
                 <div class="function_maneger">
-                    <ul class="li">
+                    <div class="li">
                         <button class="select_addStation function_maneger_select" onclick="openAddStation()">Thêm trạm xe</button>
-                    </ul>
-                    <ul class="li">
+                    </div>
+                    <div class="li">
                         <button class="t_editStaion function_maneger_select " onclick="openEditStation()">Chỉnh sửa thông tin trạm xe</button>
-                    </ul>
-                    <!-- <ul class="li">
+                    </div>
+                    <!-- <div class="li">
                         <button class="select_deleteStation function_maneger_select " onclick="openDeleteStation()">Xóa trạm xe</button>
-                    </ul> -->
-                    <ul class="li">
+                    </div> -->
+                    <div class="li">
                         <button class="select_infoStation function_maneger_select " onclick="openInfoStation()">Xem thông tin trạm xe</button>
-                    </ul>
+                    </div>
                 </div>
             </div>
             <!-- kết thúc quản lý trạm xe -->
@@ -78,7 +78,7 @@
                         <div class="addStation-body">
             
                             <label for="" class="addStation-label">Tên Trạm</label>
-                            <input type="Full Name" class="addStation-input addStationName" placeholder="Nhập tên trạm">
+                            <input type="text" class="addStation-input addStationName" placeholder="Nhập tên trạm">
             
                             <label for="" class="addStation-label">Kinh độ của trạm:</label>
                             <input type="text" class="addStation-input AddLatitude" placeholder="Nhập kinh độ">
@@ -113,26 +113,15 @@
             
                         <header class="EditStation-header">
                             <i class="ti-arrow-circle-right"></i>
-                            Chỉnh sửa thông tin trạm xe
+                            Lựa chọn trạm xe cần chỉnh sửa thông tin
                         </header>
             
                         <div class="EditStation-body">
+
+
+                          
                             
-                            <label for="" class="EditStation-label">ID của trạm cần sửa</label>
-                            <input type="text " class="EditStation-input idOfStation " placeholder="Nhập số xe">
-                            
-            
-                            <label for="" class="EditStation-label">Tên Trạm</label>
-                            <input type="Full Name" class="EditStation-input newStationName " placeholder="Nhập tên trạm">
-                            
-                            <label for="" class="EditStation-label">Kinh độ của trạm:</label>
-                            <input type="text" class="EditStation-input newlatitude" placeholder="Nhập kinh độ">
-                            
-                            <label for="" class="EditStation-label">Vĩ độ của trạm</label>
-                            <input type="text" class="EditStation-input newLongitude" placeholder="Nhập vĩ độ">
-        
-                            
-                            <button class="cfEditStation_btn btn_css" >
+                            <button class="capNhat btn_css" >
                                 Cập nhật
                                 <i class="ti-check"></i>
                             </button>
@@ -143,6 +132,52 @@
                     </div>
                 </div>
                 <!-- end edit station  -->
+
+                <!-- edit each station -->
+                <div class="EditEachStation">
+                    <div class="EditEachStation_border">
+        
+                        <div class="EditEachStation_close" onclick="closeEditEachStation()">
+                            <i class="ti-close"></i>
+                        </div>
+            
+                        <header class="EditEachStation-header">
+                            <i class="ti-arrow-circle-right"></i>
+                            <p class="stationNameEdit">
+
+                            </p>
+                        </header>
+            
+                        <div class="EditEachStation-body">
+                            <label for="" class="editEachStation_stationName"></label>
+                            <input type="text" class="editEachStation-input newStationName " placeholder="Chỉnh sửa tên trạm">
+                            
+                            <label for="" class="editEachStation_slotQuantity"></label>
+                            <input type="text" class="editEachStation-input newSlotQuantity" placeholder="Chỉnh sửa số lượng">
+                            
+                            <label for="" class="editEachStation_avalibleBike"></label>
+                            <input type="text" class="editEachStation-input newAvalibleBike" placeholder="Chỉnh sửa số lượng">
+                            
+                            <label for="" class="editEachStation_lat"></label>
+                            <input type="text" class="editEachStation-input newPositionLat" placeholder="Chỉnh sửa kinh độ">
+                            
+                            <label for="" class="editEachStation_lng"></label>
+                            <input type="text" class="editEachStation-input newPositionLng" placeholder="Chỉnh sửa vĩ độ">
+            
+                          
+                          
+                            
+                            <button class="EditEachStation_cfBtn btn_css" >
+                                Cập nhật
+                                <i class="ti-check"></i>
+                            </button>
+                        </div>
+            
+                        
+            
+                    </div>
+                </div>
+                <!-- end edit each station -->
 
                 <!--begin delete station -->
                 <!-- <div class="DeleteStation">
@@ -203,7 +238,10 @@
                 </div>
                 <!-- end infoStation -->
 
-
+                <!-- hiển thị chức năng chỉnh sửa chi tiết từng trạm xe  -->
+                <div class="editEachStation">
+                    
+                </div>
             <!-- end funtion detail -->
 
 

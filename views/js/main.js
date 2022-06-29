@@ -88,8 +88,11 @@ function openOption(){
 }
 
 
+
+
 // fetch user's information
 var userAPI = 'http://localhost:3000/user';
+var userAPI = 'http://192.168.0.175:8080/api/auth/signin';
 var historyPathApi = 'http://localhost:3000/HistoryPath';
 var contractApi = 'http://localhost:3000/contract';
 var stationAPI  = 'http://localhost:3000/Station'
@@ -421,38 +424,51 @@ function initMap() {
   distance();
 }  
 
-
+// login
+function login(){
+  var UserName = document.querySelector('.login_userName').value;
+  var password = document.querySelector('.login_password').value;
+  console.log(UserName);
+  displayUserInfo(UserName,password);
+  displaySequential(UserName,password);
+  indetifyUser(UserName,password)
+}
 
 // logout
 
-function logoutFunc() {
-  document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-
-  window.location.reload();
-}
 
 /**------------------fetch------------------------ */
 
 
 //user's information and contract
-var loginID = 'tuanvd';
+// var loginID = 'tuanvd';
 
 
 
 
 //display all about user's information
-function displayUserInfo(){
+function displayUserInfo(UserName,password){
+  console.log(UserName)
 fetch(userAPI)
 .then(function(response) {
   return response.json(); 
 })
 .then(function(users) {
   return user = users.find(function(user) {
-    return user.UserName == loginID;
+    return (user.UserName == UserName && user.UserPassword == password);
   })
 })
 .then(function(user){
+  console.log(user );
+  if(user == undefined){
+    alert('sai, đăng nhập lại')
+  }
+  else{
+    document.querySelector('.main').style.display = 'block';
+    // document.querySelector('.footer').style.display = 'block';
+    document.querySelector('.logIn').style.display = 'none';
 
+  }
   //get user's information
   var displayUserName = `<p>${user.UserFullName}</p>`;
   document.querySelector('.infor_list_userName').innerHTML = displayUserName;
@@ -478,31 +494,33 @@ fetch(userAPI)
 
 })
 }
-displayUserInfo();
+// displayUserInfo();
 
 //display contract and history path
-function displaySequential(){
+function displaySequential(UserName,password){
 getApi(userAPI)
   .then(function(response){
     return response.json();
   })
   .then(function(users){
     return user = users.find(function(user){
-      return user.UserName == loginID;
+      return (user.UserName == UserName && user.UserPassword == password);
     })
     
   })
   .then(function(user){
+    console.log(user );
     getApi(contractApi)
       .then (function(response){
         return response.json();
       })
-      .then(function(contructs){
-        return userconstract = contructs.filter(function(construct){
-          return construct.User_ID == user.id;
+      .then(function(contracts){
+        return usercontract = contracts.filter(function(contract){
+          return contract.User_ID == user.id;
         })
       })
       .then(function(contructs){
+        console.log(contructs );
         //display user's name
         var username = `<p>Người dùng: ${user.UserFullName}</p><b> ID:${user.id}`;
         document.querySelector('.userInfo').innerHTML = username;
@@ -519,7 +537,7 @@ getApi(userAPI)
         //get contract's data  
         var htmlConstract = contructs.map(function(contruct){
           return `<tr>
-                    <td>${contruct.number}</td>
+                    <td>${contruct.id}</td>
                     <td>${contruct.contractDate}</td>
                     <td>${contruct.VAT}</td>
                     <td>${contruct.money}</td>
@@ -535,14 +553,34 @@ getApi(userAPI)
             return response.json();
           })
           .then(function (histories){
-            return userHistories = histories.filter(function (history){
-              return history.id == contructs[0].User_ID;
-            })
-            
+            // var i = 0;
+            // var userHistories = histories.filter(function (history){
+                
+            //   if ( i <= contructs.length) i ++;
+            //   else i = 0;
+            //   return history.contractNumber == contructs[i].id;
+                
+            //   })
+            var userHistories = [];
+            var value;
+            for ( var i = 0; i < contructs.length; i++){
+              value = histories.filter(function (history){
+                
+                
+                return history.contractNumber == contructs[i].id;
+              })
+              userHistories[i] = ( value);
+            }
+           
+           
+            console.log(userHistories)
+            return userHistories;
           })
           .then(function (userHistories){
+            console.log(userHistories[1][0].time)
             var userName = `<p>Người dùng: ${user.UserFullName} <b> ID:${user.id}`;
             document.querySelector('.buyTicket_history_username').innerHTML = userName;
+
             var tableTitle = `<tr>
               <td>Ngày thuê</td>
               <td>Thời gian thuê (giờ)</td>
@@ -557,10 +595,10 @@ getApi(userAPI)
           for ( var i = 0; i < userHistories.length; i++){
             tableHistoryPath = `<tr>
               <td>${contructs[i].contractDate}</td>
-              <td>${userHistories[i].time}</td>
-              <td>${userHistories[i].distance}</td>
-              <td>${userHistories[i].StationStart}</td>
-              <td>${userHistories[i].StationEnd}</td>
+              <td>${userHistories[i][0].time}</td>
+              <td>${userHistories[i][0].distance}</td>
+              <td>${userHistories[i][0].StationStart}</td>
+              <td>${userHistories[i][0].StationEnd}</td>
             </tr>`
             html += tableHistoryPath + ' ';
           }
@@ -572,28 +610,19 @@ getApi(userAPI)
   })
 
 }
-displaySequential();
 
 
+function findContract(contracts, i) {
+  
+  return contracts[i];
+}
 //use fetch to get fake api
 function getApi(api){
   return fetch(api)
 }
   
   
-//call api to get userID 
-getApi(userAPI)
-.then(function(response){
-  return response.json();
-})
-.then(function(users){
-  return user = users.find(function(user){
-    return user.UserName == loginID;
-  })
-})
-.then(function(user){
-  getUpdateInfoFromInput(user)
-})
+
 
 //get data from input (input update)
 
@@ -613,7 +642,7 @@ return new Promise(function(resolve){
 
   var updateInfo_cfElement = document.querySelector('.cfUpdateInfor_btn');
   updateInfo_cfElement.onclick = function(){
-    data.UserFullName = document.querySelector('.updateName').value;
+    data.UserIdentifyCard = document.querySelector('.updateIdentyfy').value;
     data.UserPhone = document.querySelector('.updatePhone').value;
     data.UserEmail = document.querySelector('.updateEmail').value;
     data.UserAddress = document.querySelector('.updateAddress').value;
@@ -652,4 +681,51 @@ fetch(userAPI + '/' + user.id, {
 }
 
 
+//register
+function onclickRegister(){
+  document.querySelector('.logIn').style.display = 'none';
+  document.querySelector('.register').style.display = 'flex';
+}
+function register() {
+  var userName = document.querySelector('.username').value;
+  var name = document.querySelector('.name').value;
+  var gmail = document.querySelector('.userGmail').value;
+  var password = document.querySelector('.password').value;
+  console.log(data)
+  var data = {
+      UserName: userName,
+      UserPassword: password,
+      UserFullName: name,
+      UserPhone: "",
+      UserIdentifyCar: "",
+      UserEmail: gmail,
+      UserCredit: "",
+      UserAddress: ""
+  }
+  registerUser(userAPI, data);
+  
+}
 
+function registerUser(userAPI, data) {
+  //POST request with body equal on data in JSON format
+fetch(userAPI, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(data),
+})
+  .then((response) => response.json())
+  //Then with the data from the response in JSON...
+  .then((data) => {
+    // console.log('Success:', data);
+    alert('Cập nhật thành công!')
+    document.querySelector('.register').style.display = 'none';
+    document.querySelector('.logIn').style.display = 'block';
+  })
+  //Then with the error genereted...
+  .catch((error) => {
+    alert("Đã xảy ra lỗi, vui lòng thử lại")
+  });
+
+}

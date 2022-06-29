@@ -326,8 +326,8 @@
     
                 <div class="update_infor-body">
     
-                    <label for="" class="update_infor-label">Họ và tên</label>
-                    <input type="Full Name" class="update_infor-input updateName" placeholder="Họ và tên">
+                    <label for="" class="update_infor-label">CMDN/CCCD</label>
+                    <input type="Full Name" class="update_infor-input updateIdentyfy" placeholder="CMDN/CCCD">
     
                     <label for="" class="update_infor-label">Email</label>
                     <input type="text" class="update_infor-input updateEmail" placeholder="Email">
@@ -380,6 +380,75 @@
 
     </div>
     
+    <div class="logIn">
+        <section>
+            <!--Bắt Đầu Phần Hình Ảnh-->
+            <div class="img-bg">
+                <img src="./assset/img/istockphoto-618973378-170667a.jpg" alt="Hình Ảnh Minh Họa">
+            </div>
+            <!--Kết Thúc Phần Hình Ảnh-->
+            <!--Bắt Đầu Phần Nội Dung-->
+            <div class="noi-dung">
+                <div class="form">
+                    <h2>Trang Đăng Nhập</h2>
+                    <form action="">
+                        <div class="input-form">
+                            <span>Tên Người Dùng</span>
+                            <input type="text" name="" class="login_userName">
+                        </div>
+                        <div class="input-form">
+                            <span>Mật Khẩu</span>
+                            <input type="password" name="" class="login_password">
+                        </div>
+                        <!-- <div class="nho-dang-nhap">
+                            <label><input type="checkbox" name=""> Nhớ Đăng Nhập</label>
+                        </div> -->
+                        <div class="input-form">
+                            <input  value="Đăng Nhập" onclick="login()">
+                        </div>
+                        <!--  type="submit"-->
+                        <div class="input-form">
+                            <p>Bạn Chưa Có Tài Khoản? <p onclick="onclickRegister()">Đăng Ký</p></p>
+                        </div>
+                    </form>
+                    <!-- <h3>Đăng Nhập Bằng Mạng Xã Hội</h3>
+                    <ul class="icon-dang-nhap">
+                        <li><i class="fa fa-facebook" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-google" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
+                    </ul> -->
+                </div>
+            </div>
+            <!--Kết Thúc Phần Nội Dung-->
+        </section>
+    </div>
+
+
+    <div class="register">
+        <form action="" >
+            <div class="register">
+                <h1>Đăng ký</h1>
+                <p>Vui lòng điền thông tin để đăng ký</p>
+                <hr>
+                    <label for="username"><b>Tên đăng nhập</b></label>
+                    <input type="text" placeholder="Tên đăng nhập" name="username" class="username">
+                    
+                    <label for="username"><b>Họ và tên</b></label>
+                    <input type="text" placeholder="Họ và tên" name="name" class="name">
+
+                    <label for="password-repeat"><b>Gmail</b></label>
+                    <input type="text"  class="userGmail" placeholder="Gmail">
+
+                    <label for="password"><b>Mật khẩu</b></label>
+                    <input type="password" placeholder="******" name="password" class="password">
+                <hr>
+                
+                <p>Để tạo tài khoản vui lòng đồng ý với điều khoản của chúng tôi <a href="#">Terms & Privacy</a></p>
+                <div  class="submit" onclick="register()">Đăng ký</div>
+                <!-- type="submit" -->
+            </div>
+        </form>
+    </div>
     <!-- footer -->
     <div class="footer">
 

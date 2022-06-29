@@ -180,7 +180,7 @@ html{
     display: block;
 
 }
-.addStation-input{
+.addStation-input, .editEachStation-input{
     border: 1px solid #ccc;
     width:100%;
     padding:10px;
@@ -203,6 +203,8 @@ html{
     display: none;
     justify-content: center;
 }
+
+
 .EditStation_border{
     background: #fff;
     width: 900px;
@@ -232,21 +234,71 @@ html{
     font-size:30px;
     color: #fff;
 }
-.EditStation-label{
-    display: block;
-
+.edit_stationList{
+    font-size: 20px;
+    margin-bottom: 2px;
+    width: 100%;
+    height: 8vh;
+    border-radius: 17px;
+    background-color: white;
+    border-width: none;
 }
-.EditStation-input{
-    border: 1px solid #ccc;
-    width:100%;
-    padding:10px;
-    font-size:15px;
-    margin-bottom: 24px;
+.edit_stationList:hover{
+    cursor: pointer;
+    background-color: #ccc;
+    color: black;
 }
 .ti-arrow-circle-right{
     margin-right: 10px;
 }
 
+/* edit for each station */
+.EditEachStation{
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+    align-items: center;
+    display: none;
+    justify-content: center;
+}
+
+
+.EditEachStation_border{
+    background: #fff;
+    width: 900px;
+    max-width: calc(100% - 32px);
+    min-height: 200px;
+    position: relative;
+}
+.EditEachStation_close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #fff;
+    padding:16px;
+    cursor: pointer;
+    opacity: 0.9;
+}
+.EditEachStation-body{
+    padding: 16px;
+
+}
+.EditEachStation-header{
+    background:  rgb(41, 37, 37);
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:30px;
+    color: #fff;
+}
+
+.ti-arrow-circle-right{
+    margin-right: 10px;
+}
 /* begin delete station */
 .DeleteStation{
     position: fixed;
@@ -422,4 +474,25 @@ html{
 }
 .ti-search:hover{
     cursor: pointer;
+}
+.contractSearch{
+    display: none;
+}
+.searchBikeByID{
+    display: none;
+}
+.searchUserById{
+    display: none;
+}
+.AddBikeInput{
+    display: flex;
+    flex-direction: column;
+}
+.addBikeInput{
+    width: 40%;
+    margin-bottom: 2%;
+    height:4vh;
+}
+.addBikeLabel{
+    margin-bottom: 5px;
 }
